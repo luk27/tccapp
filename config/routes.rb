@@ -1,7 +1,7 @@
 Tccapp::Application.routes.draw do
 
+resources :profiles
 
-  get "profiles/novo"
 
   match '/cadastrar', :to => 'profiles#novo'
 
