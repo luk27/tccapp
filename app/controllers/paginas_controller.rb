@@ -1,7 +1,7 @@
-
+# encoding: UTF-8
 class PaginasController < ApplicationController
   def home
-@title= "Inicio"
+@title= "Início"
   end
 
   def contato
@@ -11,5 +11,9 @@ class PaginasController < ApplicationController
   def sobre
 @title = `Sobre`
   end
+
+  def ajuda
+    @title = "Ajuda"
+end
 
 end

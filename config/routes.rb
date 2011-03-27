@@ -1,9 +1,15 @@
 Tccapp::Application.routes.draw do
 
 
+  get "profiles/novo"
+
+  match '/cadastrar', :to => 'profiles#novo'
+
   match '/contato', :to => 'paginas#contato'
 
   match '/sobre',   :to => 'paginas#sobre'
+
+  match '/ajuda',   :to => 'paginas#ajuda'
 
   root :to => 'paginas#home'
 
