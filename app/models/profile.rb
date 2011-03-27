@@ -20,7 +20,7 @@ validates :email, :presence => true,
 
 #validates :data_nascimento, :presence => true
 
-validates :sexo, :presence => true
+#validates :sexo, :presence => true
 
   validates :senha, :presence     => true,
                        :confirmation => true,

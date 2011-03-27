@@ -1,2 +1,29 @@
-<h1>Profiles#new</h1>
-<p>Find me in app/views/profiles/novo.html.erb</p>
+<h1>Cadastrar</h1>
+
+<%= form_for(@profile) do |f| %>
+<%= render 'shared/error_messages' %>
+  <div class="field">
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field">
+    <%= f.label :sobrenome %><br />
+    <%= f.text_field :sobrenome %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :senha %><br />
+    <%= f.password_field :senha %>
+  </div>
+  <div class="field">
+    <%= f.label :senha_confirmation, "Confirmação da Senha" %><br />
+    <%= f.password_field :senha_confirmation %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Cadastrar" %>
+  </div>
+<% end %>
