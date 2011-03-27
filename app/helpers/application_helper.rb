@@ -7,4 +7,8 @@ module ApplicationHelper
       "#{base_title} | #{@title}"
     end
   end
+  def logo
+    image_tag("logotcc.png", :alt => "TCC-APP", :class => "round")
+  end
+
 end

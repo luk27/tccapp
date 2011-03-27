@@ -1,0 +1,17 @@
+<h1>Entrar</h1>
+
+<%= form_for(:session, :url => sessions_path) do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Entrar" %>
+  </div>
+<% end %>
+
+<p>Ainda não tem uma conta? <%= link_to "Crie uma agora!!", cadastrar_path %></p>

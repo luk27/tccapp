@@ -1,12 +1,19 @@
 
 <header>
-  <% logo = image_tag("logotcc.png", :alt => "TCC-APP", :class => "round") %>
+
   <%= link_to logo, root_path %>
   <nav class="round">
     <ul>
       <li><%= link_to "Início", root_path %></li>
+<% if entrar? %>
+      <li><%= link_to "Profile", current_profile%></li>
+<% end %>
       <li><%= link_to "Ajuda", ajuda_path %></li>
-      <li><%= link_to "Entrar", '#' %></li>
+       <% if entrar? %>
+      <li><%= link_to "Sair", sair_path, :method => :delete %></li>
+      <% else %>
+      <li><%= link_to "Entrar", entrar_path %></li>
+      <% end %>
     </ul>
   </nav>
 </header>

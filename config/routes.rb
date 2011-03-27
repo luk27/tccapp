@@ -1,7 +1,11 @@
 Tccapp::Application.routes.draw do
 
 resources :profiles
+resources :sessions, :only => [:new, :create, :destroy]
 
+  match '/entrar',  :to => 'sessions#new'
+
+  match '/sair', :to => 'sessions#destroy'
 
   match '/cadastrar', :to => 'profiles#novo'
 

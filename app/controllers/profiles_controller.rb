@@ -12,7 +12,8 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(params[:profile])
     if @profile.save
-      flash[:success] = "Login efetuado com sucesso! :)"
+      entrar @profile
+      flash[:success] = "Conta criada com sucesso! :)"
         redirect_to @profile
     else
       @title = "Cadastrar"
