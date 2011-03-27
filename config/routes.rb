@@ -1,4 +1,10 @@
 Tccapp::Application.routes.draw do
+  get "paginas/home"
+
+  get "paginas/contato"
+
+  get "paginas/sobre"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
