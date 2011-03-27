@@ -1,9 +1,12 @@
 Tccapp::Application.routes.draw do
-  get "paginas/home"
 
-  get "paginas/contato"
 
-  get "paginas/sobre"
+  match '/contato', :to => 'paginas#contato'
+
+  match '/sobre',   :to => 'paginas#sobre'
+
+  root :to => 'paginas#home'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
