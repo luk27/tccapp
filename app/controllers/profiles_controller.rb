@@ -5,6 +5,7 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = Profile.find(params[:id])
+    @title = @profile.nome
   end
 
 end
