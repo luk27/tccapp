@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110327190725) do
+ActiveRecord::Schema.define(:version => 20110328013549) do
 
   create_table "profiles", :force => true do |t|
     t.string   "nome"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20110327190725) do
     t.string   "salt"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin",           :default => false
   end
 
   add_index "profiles", ["email"], :name => "index_profiles_on_email", :unique => true

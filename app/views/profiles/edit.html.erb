@@ -1,7 +1,7 @@
-<h1>Cadastrar</h1>
+<h1>Editar Profile</h1>
 
 <%= form_for(@profile) do |f| %>
-<%= render 'shared/error_messages', :object => f.object %>
+  <%= render 'shared/error_messages', :object => f.object %>
   <div class="field">
     <%= f.label :nome %><br />
     <%= f.text_field :nome %>
@@ -10,7 +10,6 @@
     <%= f.label :sobrenome %><br />
     <%= f.text_field :sobrenome %>
   </div>
-
   <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>
@@ -20,10 +19,15 @@
     <%= f.password_field :password %>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation, "Confirmação da Senha" %><br />
+    <%= f.label :password_confirmation, "Confirmation" %><br />
     <%= f.password_field :password_confirmation %>
   </div>
   <div class="actions">
-    <%= f.submit "Cadastrar" %>
+    <%= f.submit "Editar" %>
   </div>
 <% end %>
+
+<div>
+  <%= gravatar_for @profile %>
+  <a href="http://gravatar.com/emails">change</a>
+</div>

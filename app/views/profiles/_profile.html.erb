@@ -1,0 +1,8 @@
+<li>
+      <%= gravatar_for profile, :size => 40 %>
+      <%= link_to profile.nome+" "+profile.sobrenome, profile %>
+  <% if current_profile.admin? %>
+  | <%= link_to "delete", profile, :method => :delete, :confirm => "Tem certeza disso?",
+                                :title => "Delete #{profile.nome}" %>
+  <% end %>
+</li>

@@ -12,7 +12,7 @@ def create
       render 'new'
     else
       entrar profile
-      redirect_to profile
+      redirect_back_or profile
       flash[:success] = "Login efetuado com sucesso! :)"
     end
   end
