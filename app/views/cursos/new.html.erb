@@ -1,0 +1,27 @@
+<h1>Adicionar Curso</h1>
+
+<%= form_for(@curso) do |f| %>
+
+  <div class="field">
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field">
+    <%= f.label :universidade %><br />
+    <%= f.text_field :universidade %>
+  </div>
+  <div class="field">
+    <%= f.label :ano_ingresso %><br />
+    <%= f.text_field :ano_ingresso %>
+  </div>
+  <div class="field">
+    <%= f.label :ano_termino %><br />
+    <%= f.text_field :ano_termino %>
+  </div>
+
+
+
+  <div class="actions">
+    <%= f.submit "Cadastrar" %>
+  </div>
+<% end %>
