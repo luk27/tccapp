@@ -10,6 +10,17 @@
     <%= f.label :sobrenome %><br />
     <%= f.text_field :sobrenome %>
   </div>
+
+  <div class="field">
+    <%= f.label :data_nascimento %><br />
+    <%= f.text_field :data_nascimento %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sexo %><br />
+    <%= select( "profile", "sexo", { "Masculino" => "masculino", "Feminino" => "feminino"}) %>
+  </div>
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>
