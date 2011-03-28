@@ -1,4 +1,15 @@
 <h1>
 <%= gravatar_for @profile %>
-<%= @profile.nome %> <%= @profile.sobrenome %>, <%= @profile.sexo %>, <%= @profile.email %>
+ <%= @profile.nome %> <%= @profile.sobrenome %>, <%= @profile.sexo %> . Nasceu em: <%= @profile.data_nascimento %></br>
 </h1>
+<h2>
+Email: <%= @profile.email %>
+</h2>
+<section>
+
+
+
+<li><%= link_to "Adicionar Curso", curso_path %></li>
+</section>
+
+

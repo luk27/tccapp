@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
  before_filter :authenticate, :only => [:index, :edit, :update]
  before_filter :correct_profile, :only => [:edit, :update]
-  before_filter :admin_profile,   :only => :destroy
+ before_filter :admin_profile,   :only => :destroy
 
   def novo
 @title = `Cadastrar`
@@ -53,9 +53,6 @@ class ProfilesController < ApplicationController
 
   private
 
-    def authenticate
-      deny_access unless entrar?
-    end
 
     def correct_profile
       @profile = Profile.find(params[:id])

@@ -19,6 +19,10 @@ module SessionsHelper
     profile == current_profile
   end
 
+    def authenticate
+      deny_access unless entrar?
+    end
+
   def deny_access
     redirect_to entrar_path, :notice => "Por favor entre no sistema para poder editar seu profile."
   end

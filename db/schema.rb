@@ -10,7 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110328013549) do
+ActiveRecord::Schema.define(:version => 20110328182538) do
+
+  create_table "cursos", :force => true do |t|
+    t.integer  "profile_id"
+    t.string   "nome"
+    t.string   "universidade"
+    t.integer  "ano_ingresso"
+    t.integer  "ano_termino"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cursos", ["profile_id"], :name => "index_cursos_on_profile_id"
 
   create_table "profiles", :force => true do |t|
     t.string   "nome"
