@@ -24,6 +24,7 @@ module SessionsHelper
     end
 
   def deny_access
+  store_location # CODIGO NOVO
     redirect_to entrar_path, :notice => "Por favor entre no sistema para poder editar seu profile."
   end
 

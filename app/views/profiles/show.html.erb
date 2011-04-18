@@ -9,8 +9,10 @@ Email: <%= @profile.email %>
 <section>
 
 
-
-<li><%= link_to "Adicionar Curso", curso_path %></li>
+<% if current_profile?(@profile) %>
+<li><%= link_to "Adicionar Curso", curso_path(current_profile) %></li>
+<% else %>
+<% end %>
 </section>
 </h3>
 

@@ -16,6 +16,7 @@ class ProfilesController < ApplicationController
   def show
     @profile = Profile.find(params[:id])
     @title = @profile.nome
+    
   end
 
   def create
@@ -58,6 +59,7 @@ class ProfilesController < ApplicationController
       @profile = Profile.find(params[:id])
       redirect_to(root_path) unless current_profile?(@profile)
     end
+    
 
     def admin_profile
       redirect_to(root_path) unless current_profile.admin?

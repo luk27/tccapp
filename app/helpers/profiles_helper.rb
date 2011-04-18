@@ -6,4 +6,7 @@ module ProfilesHelper
                                             :gravatar => options)
   end
 
+
+
+
 end
