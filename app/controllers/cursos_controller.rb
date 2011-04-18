@@ -1,15 +1,30 @@
 class CursosController < ApplicationController
 before_filter :authenticate, :only => [:new, :create, :destroy]
+before_filter :correct_profile, :only => [:new, :edit, :update]
 
-  def new
+
+## REMOVENDO CODIGO
+ def new
 @title = `Adicionar Curso`
 @curso = Curso.new
   end
 
 
+
+## NOVO CODIGO
+
+
+
+
+## NOVO CODIGO
+
+
+
   def create
-@title = `Adicionar Curso`
-    @curso  = current_profile.cursos.build(params[:curso])
+  #TENTATIVA
+
+    #@title = `Adicionar Curso`
+    @curso = current_profile.cursos.build(params[:curso])
     if @curso.save
       flash[:success] = "Curso adicionado com sucesso!"
       redirect_to current_profile
@@ -18,4 +33,13 @@ before_filter :authenticate, :only => [:new, :create, :destroy]
     end
   end
 
+
+#NOVO CODIGO
+     def correct_profile
+      @profile = Profile.find(params[:id_profile])
+      redirect_to current_profile unless current_profile?(@profile)
+    end
+#NVO
+
 end
+

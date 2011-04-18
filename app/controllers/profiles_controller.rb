@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
  before_filter :authenticate, :only => [:index, :edit, :update]
  before_filter :correct_profile, :only => [:edit, :update]
- before_filter :admin_profile,   :only => :destroy
+ before_filter :admin_profile, :only => :destroy
 
   def novo
 @title = `Cadastrar`
@@ -16,6 +16,7 @@ class ProfilesController < ApplicationController
   def show
     @profile = Profile.find(params[:id])
     @title = @profile.nome
+
   end
 
   def create
@@ -59,8 +60,10 @@ class ProfilesController < ApplicationController
       redirect_to(root_path) unless current_profile?(@profile)
     end
 
+
     def admin_profile
       redirect_to(root_path) unless current_profile.admin?
     end
 
 end
+
