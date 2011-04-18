@@ -7,19 +7,13 @@ resources :sessions, :only => [:new, :create, :destroy]
 
   match '/entrar', :to => 'sessions#new'
 
-<<<<<<< HEAD
-  ##match '/curso',  :to => 'cursos#new'
-  
-  ##match '/cursos/:id_profile',  :to => 'profiles#create_curso'
-  
-  match '/cursos/:id_profile',  :to => 'cursos#new'
-=======
   ##match '/curso', :to => 'cursos#new'
 
   ##match '/cursos/:id_profile', :to => 'profiles#create_curso'
 
   match '/cursos/:id_profile', :to => 'cursos#new'
->>>>>>> Visualizar
+  #TENTATIVA \/
+  #match '/profiles/:id_profile/cursos', :to => 'cursos#new'
 
   match '/sair', :to => 'sessions#destroy'
 
@@ -91,3 +85,4 @@ resources :sessions, :only => [:new, :create, :destroy]
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 end
+

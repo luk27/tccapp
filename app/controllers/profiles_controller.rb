@@ -16,11 +16,7 @@ class ProfilesController < ApplicationController
   def show
     @profile = Profile.find(params[:id])
     @title = @profile.nome
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> Visualizar
+    @feed_items = @profile.feed.paginate(:page => params[:page])
   end
 
   def create
@@ -63,7 +59,6 @@ class ProfilesController < ApplicationController
       @profile = Profile.find(params[:id])
       redirect_to(root_path) unless current_profile?(@profile)
     end
-    
 
 
     def admin_profile
@@ -71,4 +66,3 @@ class ProfilesController < ApplicationController
     end
 
 end
-

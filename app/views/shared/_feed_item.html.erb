@@ -1,0 +1,21 @@
+
+<tr>
+
+  <td class="curso"><font size = 3>
+    <span class="profile">
+    </span>
+   <span class="content"><%= feed_item.nome %> - <span class="content"><%= feed_item.universidade %><br>
+   Ingressou em: <span class="content"><%= feed_item.ano_ingresso %> - Encerramento previso em: <span class="content"><%= feed_item.ano_termino %>
+    </span>
+  </td>
+
+  <% if current_profile?(feed_item.profile) %>
+ <td>
+    <%= link_to "delete", feed_item, :remote => true, :action => "destroy",
+                                     :method => :delete,
+                                     :confirm => "You sure?",
+                                     :title => "DIE" %>
+  </td>
+  <% else %>
+  <% end %>
+</tr>

@@ -7,17 +7,18 @@ Email: <%= @profile.email %>
 </h2>
 <h3>
 <section>
+<HR>
+<% unless @feed_items.empty? %>
+Cursos
+<% end %>
 
-
-<% if current_profile?(@profile) %>
-<li><%= link_to "Adicionar Curso", curso_path(current_profile) %></li>
+<% if current_profile?(@profile) %><li><%= link_to "Adicionar", curso_path(current_profile) %></li>
 <% else %>
 <% end %>
+
+<%= render 'shared/feed' %>
+
 </section>
 </h3>
-<<<<<<< HEAD
 
-
-=======
->>>>>>> Visualizar
 

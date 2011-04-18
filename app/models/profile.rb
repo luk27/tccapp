@@ -32,6 +32,16 @@ validates :email, :presence => true,
 
   before_save :encrypt_password
 
+#NOVO CODIGO
+def feed
+#Curso.where("profile_id = ?", id)
+Curso.where("profile_id = ?", id)
+#cursos
+end
+
+
+#NOVO CODIGO
+
   def has_password?(submitted_password)
     senhacrip == encrypt(submitted_password)
   end
