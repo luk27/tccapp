@@ -15,16 +15,27 @@ before_filter :correct_profile, :only => [:new, :edit, :update]
 
 
 
+<<<<<<< HEAD
     
 ## NOVO CODIGO    
+=======
+
+## NOVO CODIGO
+>>>>>>> Visualizar
 
 
 
   def create
   #TENTATIVA
+<<<<<<< HEAD
   
     #@title = `Adicionar Curso`
     @curso  = current_profile.cursos.build(params[:curso])
+=======
+
+    #@title = `Adicionar Curso`
+    @curso = current_profile.cursos.build(params[:curso])
+>>>>>>> Visualizar
     if @curso.save
       flash[:success] = "Curso adicionado com sucesso!"
       redirect_to current_profile
@@ -42,3 +53,4 @@ before_filter :correct_profile, :only => [:new, :edit, :update]
 #NVO
 
 end
+
