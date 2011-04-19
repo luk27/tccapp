@@ -11,8 +11,8 @@
 
   <% if current_profile?(feed_item.profile) %>
  <td>
-    <%= link_to "delete", feed_item, :remote => true, :action => "destroy",
-                                     :method => :delete,
+    <%= link_to "delete", ([@profile,@feed_item]) , :action => "destroy",
+                                     :method => :destroy,
                                      :confirm => "You sure?",
                                      :title => "DIE" %>
   </td>

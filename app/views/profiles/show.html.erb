@@ -8,16 +8,21 @@ Email: <%= @profile.email %>
 <h3>
 <section>
 <HR>
-<% unless @feed_items.empty? %>
-Cursos
-<% end %>
-
-<% if current_profile?(@profile) %><li><%= link_to "Adicionar", curso_path(current_profile) %></li>
+<% if current_profile?(@profile) %>
+<li><%= link_to "Adicionar", profile_cursos_path(current_profile) %></li>
 <% else %>
 <% end %>
+<ol>
 
-<%= render 'shared/feed' %>
+<% for curso in @profile.cursos %>
+<li><%=h curso.nome %> - <%=h curso.universidade %><br>
+Ingresso em: <%=h curso.ano_ingresso %> - Encerra em: <%=h curso.ano_termino %> 
+<li>
+<%= button_to 'Delete', { :action => "destroy", :id => curso.id },:confirm => "Are you sure?", :method => :delete %>
 
+<HR>
+<% end %>
+</ol>
 </section>
 </h3>
 

@@ -4,32 +4,37 @@ before_filter :correct_profile, :only => [:new, :edit, :update, :destroy]
 #before_filter :authorized_profile, :only => :destroy
 
 ## REMOVENDO CODIGO
- def new
-@title = `Adicionar Curso`
-@curso = Curso.new
+ #def new
+#@title = `Adicionar Curso`
+#@curso = Curso.new
+ # end
+
+#NEW TRY 
+  def new
+    @profile = Profile.find(params[:id_profile])
+    @curso = @profile.cursos.build
+    #respond_with(@curso)
   end
+
 
 
 
 ## NOVO CODIGO
   def destroy
+    @profile= Profile.find(params[:id_profile])
+    @curso = Curso.find(params[:curso_id])
     @curso.destroy
     redirect_to current_profile
   end
-
- 
-
-
-
 ## NOVO CODIGO
-
-
 
   def create
   #TENTATIVA
+    @profile = Profile.find(params[:profile_id])
+    @curso= @profile.cursos.build(params[:curso])
 
-    #@title = `Adicionar Curso`
-    @curso = current_profile.cursos.build(params[:curso])
+
+   #@curso = current_profile.cursos.build(params[:curso])
     if @curso.save
       flash[:success] = "Curso adicionado com sucesso!"
       redirect_to current_profile

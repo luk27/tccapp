@@ -3,11 +3,5 @@
     <span class="nome"><%= curso.nome %></span>
     </span>
   </td>
-    <% if current_profile?(feed_item.profile) %>
-  <td>
-   <%=  button_to "Delete", { :action => "destroy", :id => feed_item.id},
-            :confirm => "Are you sure?", :method => :delete, :title => feed_item.id %>
-  </td>
-  <% else %>
-  <% end %>
+
 </tr>

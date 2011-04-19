@@ -1,6 +1,6 @@
 <h1>Adicionar Curso</h1>
 
-<%= form_for @curso do |f| %>
+<%= form_for ([@profile,@curso]) do |f| %>
 
   <div class="field">
     <%= f.label :nome %><br />
