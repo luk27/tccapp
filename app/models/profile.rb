@@ -7,6 +7,8 @@ has_many :cursos, :dependent => :destroy
 accepts_nested_attributes_for :cursos, :allow_destroy => true
 
 
+
+
 email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
 

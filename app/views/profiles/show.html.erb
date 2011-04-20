@@ -1,29 +1,46 @@
+<%= csrf_meta_tag %>
 <h1>
-<%= gravatar_for @profile %>
- <%= @profile.nome %> <%= @profile.sobrenome %>, <%= @profile.sexo %> . Nasceu em: <%= @profile.data_nascimento %></br>
-</h1>
+<td class="profile"><font size = 5>
+<%= gravatar_for @profile %> <%= @profile.nome %> <%= @profile.sobrenome %>, <%= @profile.sexo %>. Nasceu em: <%= @profile.data_nascimento %></br>
+
+        Email: <%= @profile.email %>
+ </font size></td>
+ </h1>
 <h2>
-Email: <%= @profile.email %>
-</h2>
-<h3>
-<section>
+
 <HR>
-<% if current_profile?(@profile) %>
-<li><%= link_to "Adicionar", profile_cursos_path(current_profile) %></li>
+<span>Cursos <% if current_profile?(@profile) %></span> <span><font size = 3><%= link_to "Adicionar Curso", new_profile_curso_path(current_profile) %></font size></span></span>
 <% else %>
 <% end %>
-<ol>
 
+
+    
 <% for curso in @profile.cursos %>
-<li><%=h curso.nome %> - <%=h curso.universidade %><br>
-Ingresso em: <%=h curso.ano_ingresso %> - Encerra em: <%=h curso.ano_termino %> 
-<li>
-<%= button_to 'Delete', { :action => "destroy", :id => curso.id },:confirm => "Are you sure?", :method => :delete %>
+<table class="cursos" summary="Cursos">
+<tr>
 
-<HR>
+
+<td class="curso"><font size = 3>
+<span class="nome"><%=h curso.nome %> - <span class="universidade"><%=h curso.universidade %><br>
+Ingresso em: <span class="ingresso"><%=h curso.ano_ingresso %> - Encerra em: <span class="termino"><%=h curso.ano_termino %> 
+  </span>
+  </td>
+  
+
+<% if current_profile?(@profile) %>
+ <td class="delete"><font size = 4>
+ <br>
+<p align="Right"><%= link_to "Delete", profile_curso_path(current_profile, curso), :method => :delete %></p>
+</td>
+
+<% else %>
 <% end %>
-</ol>
-</section>
-</h3>
+</tr>
+</table>
+ 
+
+<% end %>
+<HR>
+</h2>
 
 

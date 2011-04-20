@@ -1,32 +1,38 @@
 class CursosController < ApplicationController
 before_filter :authenticate, :only => [:new, :create, :destroy]
-before_filter :correct_profile, :only => [:new, :edit, :update, :destroy]
+before_filter :correct_profile, :only => [:new, :edit, :update]#, :destroy]
+before_filter :correct_profile_d, :only => [:destroy]
 #before_filter :authorized_profile, :only => :destroy
+before_filter :get_profile
 
-## REMOVENDO CODIGO
- #def new
-#@title = `Adicionar Curso`
-#@curso = Curso.new
- # end
 
-#NEW TRY 
+
   def new
-    @profile = Profile.find(params[:id_profile])
+    @profile = Profile.find(params[:profile_id])
     @curso = @profile.cursos.build
     #respond_with(@curso)
   end
 
+def get_profile
+    @profile = Profile.find(params[:id_profile]) if params[:id_profile]
+    
+end
 
+def destroy
+  @profile= Profile.find(params[:id_profile])
+  @curso = Curso.find(params[:id_curso])
+  @curso.destroy
+  redirect_to current_profile
+end 
 
-
-## NOVO CODIGO
-  def destroy
-    @profile= Profile.find(params[:id_profile])
-    @curso = Curso.find(params[:curso_id])
-    @curso.destroy
-    redirect_to current_profile
-  end
-## NOVO CODIGO
+## DESTROY ANTIGO
+  #def destroy
+  #  @profile= Profile.find(params[:id_profile])
+  #  @curso = Curso.find(params[:curso_id])
+  #  @curso.destroy
+  #  redirect_to current_profile
+ # end
+## DESTROY ANTIGO
 
   def create
   #TENTATIVA
@@ -47,11 +53,15 @@ before_filter :correct_profile, :only => [:new, :edit, :update, :destroy]
 
 #NOVO CODIGO
      def correct_profile
-      @profile = Profile.find(params[:id_profile])
+      @profile = Profile.find(params[:profile_id])
       redirect_to current_profile unless current_profile?(@profile)
     end
 #NVO
 
+def correct_profile_d
+      @profile = Profile.find(params[:id_profile])
+      redirect_to current_profile unless current_profile?(@profile)
+    end
 
  private
 
