@@ -23,7 +23,7 @@
 					  <%= link_to "#{h(message.subject)} (NOVA!)", profile_message_path(@profile, message) %>
 					<% end %>
 				</td>
-				<td><%= link_to h(message.sender.email), profile_path(@profile) %></td>
+				<td><%= link_to h(message.sender.email), profile_path(message.sender) %></td>
 		    <td><%=h message.created_at.to_s(:long) %></td>
 			</tr>
 		<% end %>
