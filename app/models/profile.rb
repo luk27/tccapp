@@ -7,7 +7,7 @@ has_many :cursos, :dependent => :destroy
 accepts_nested_attributes_for :cursos, :allow_destroy => true
 
 
-
+has_private_messages
 
 email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -37,7 +37,6 @@ validates :email, :presence => true,
 
 #NOVO CODIGO
 def feed
-#Curso.where("profile_id = ?", id)
 Curso.where("profile_id = ?", id)
 #cursos
 end

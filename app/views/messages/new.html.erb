@@ -1,0 +1,25 @@
+
+<% form_for @message, :url => profile_messages_path(@profile) do |f| %>
+  <p>
+    Email:<br />
+		<%= f.text_field :to %>
+		<%= error_message_on @message, :to %>
+  </p>
+  <p>
+    Assunto:<br />
+    <%= f.text_field :subject %>
+    <%= error_message_on @message, :subject %>
+    </p>
+    <p>
+      Mensagem<br />
+      <%= f.text_area :body %>
+			<%= error_message_on @message, :body %>
+    </p>
+    <p>
+      <%= submit_tag "Enviar" %>
+      
+    </p>
+    <%= link_to "<- Voltar", profile_messages_path(current_profile) %>
+<% end %>
+
+

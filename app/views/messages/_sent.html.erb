@@ -1,0 +1,31 @@
+<h2>Mensagens Enviadas</h2>
+<table>
+	<tr>
+		<th>Del?</th>
+		<th>Assunto</th>
+		<th>Para</th>
+		<th>Em</th>
+	</tr>
+	<% if @messages.size == 0 %>
+		<tr>
+			<td colspan="4">
+				Sem Mensagens
+			</td>
+		</tr>
+	<% else %>
+		<% for message in @messages %>
+			<tr>
+				<td><%= check_box_tag "delete[]", message.id %></td>
+				<td><%= link_to h(message.subject), profile_message_path(@profile, message) %></td>
+  			<td><%= link_to h(message.recipient.email), profile_path(message.recipient) %></td>
+			  <td><%=h message.created_at.to_s(:long) %></td>
+			</tr>
+		<% end %>
+		<tr>
+			<td colspan="4">
+				<%= submit_tag "Delete" %>
+			</td>
+		</tr>
+ 	<% end %>
+</table>
+<%= link_to "Caixa de Entrada", profile_messages_path(@profile)%>

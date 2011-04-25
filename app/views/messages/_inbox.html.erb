@@ -1,0 +1,38 @@
+<h2>Caixa de Entrada</h2>
+<table>
+	<tr>
+		<th>Del?</th>
+		<th>Assunto</th>
+		<th>Autor</th>
+		<th>Em</th>
+	</tr>
+	<% if @messages.size == 0 %>
+		<tr>
+			<td colspan="4">
+				Sem Mensagens
+			</td>
+		</tr>
+	<% else %>
+		<% for message in @messages %>
+			<tr>
+				<td><%= check_box_tag "delete[]", message.id %></td>
+				<td>
+					<% if message.read? %>
+					  <%= link_to h(message.subject), profile_message_path(@profile, message) %>
+					<% else %>
+					  <%= link_to "#{h(message.subject)} (NOVA!)", profile_message_path(@profile, message) %>
+					<% end %>
+				</td>
+				<td><%= link_to h(message.sender.email), profile_path(@profile) %></td>
+		    <td><%=h message.created_at.to_s(:long) %></td>
+			</tr>
+		<% end %>
+		<tr>
+			<td colspan="4">
+				<%= submit_tag "Delete" %>
+			</td>
+		</tr>
+	<% end %>
+</table>
+<%= link_to "Enviadas", profile_messages_path(@profile, :mailbox => :sent)%> |
+<%= link_to "Escrever", new_profile_message_path(@profile)%>

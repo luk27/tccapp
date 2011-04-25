@@ -1,0 +1,7 @@
+<% form_tag delete_selected_profile_messages_path(@profile, :method => :post) do %>
+	<% if params[:mailbox] == "sent" %>
+			<%= render :partial => "sent" %>
+	<% else %>
+			<%= render :partial => "inbox" %>
+		<% end %>
+<% end %>

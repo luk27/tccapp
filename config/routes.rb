@@ -1,10 +1,19 @@
 Tccapp::Application.routes.draw do
 
 
-resources :profiles do
-resources :cursos, :only => [:new, :create, :destroy]
+  resources :profiles do
+  resources :cursos, :only => [:new, :create, :destroy]
+             resources :messages do
+               collection do
+                 post :delete_selected
+               end
+             end
+           end
 
-end
+#resources :profiles do
+#resources :cursos, :only => [:new, :create, :destroy]
+
+#end
 
 resources :sessions, :only => [:new, :create, :destroy]
 
@@ -31,6 +40,10 @@ resources :sessions, :only => [:new, :create, :destroy]
   match '/sobre', :to => 'paginas#sobre'
 
   match '/ajuda', :to => 'paginas#ajuda'
+
+  match '/profiles/:id_profile/messages', :to => 'messages#index'
+
+  match '/profiles/:id_profile/messages/:id_message', :to => 'messages#show'
 
   root :to => 'paginas#home'
 
