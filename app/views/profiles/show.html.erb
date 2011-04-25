@@ -7,6 +7,12 @@
  </font size></td>
  </h1>
 <h2>
+<% if current_profile?(@profile) %>
+<% else %>
+<td class="msg"><font size = 4>
+<%= link_to "Enviar Mensagem!", new_profile_message_path(current_profile, :mens=> @profile) %>
+</font size></td>
+<% end %>
 
 <HR>
 <span>Cursos <% if current_profile?(@profile) %></span> <span><font size = 3><%= link_to "Adicionar Curso", new_profile_curso_path(current_profile) %></font size></span></span>

@@ -27,8 +27,12 @@ class MessagesController < ApplicationController
         @message.body = "\n\n*Mensagem Original*\n\n #{@reply_to.body}"
       end
     end
+    if params[:mens]
+    @mens = Profile.find(params[:mens])
+    @message.to = @mens.email
+    end
   end
-  
+
   def create
     @message = Message.new(params[:message])
     @message.sender = @profile

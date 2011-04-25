@@ -4,6 +4,7 @@
     Email:<br />
 		<%= f.text_field :to %>
 		<%= error_message_on @message, :to %>
+        <%= error_message_on @message, :recipient_id %>
   </p>
   <p>
     Assunto:<br />
