@@ -8,9 +8,10 @@
  </h1>
 <h2>
 <% if current_profile?(@profile) %>
+<font size = 4><%= link_to "Editar Profile", edit_profile_path(current_profile) %></font size>
 <% else %>
 <td class="msg"><font size = 4>
-<%= link_to "Enviar Mensagem!", new_profile_message_path(current_profile, :mens=> @profile) %>
+<%= link_to "Enviar Mensagem!", new_profile_message_path(current_profile, :mens=> @profile) %> 
 </font size></td>
 <% end %>
 

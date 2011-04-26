@@ -10,11 +10,11 @@
       <li><%= link_to "Início", root_path %></li>
       <% end %>
 <% if entrar? %>
+      <li><%= link_to "Projetos", projetos_path %></li> 
       <li><%= link_to "Membros", profiles_path %></li>
       <li><%= link_to "Profile", current_profile%></li>
-      <li><%= link_to "Editar", edit_profile_path(current_profile) %></li>
+      
 <% end %>
-      <li><%= link_to "Ajuda", ajuda_path %></li>
        <% if entrar? %>
       <li><%= link_to "Sair", sair_path, :method => :delete %></li>
       <% else %>

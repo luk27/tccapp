@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110424210912) do
+ActiveRecord::Schema.define(:version => 20110426181302) do
 
   create_table "cursos", :force => true do |t|
     t.integer  "profile_id"
@@ -54,5 +54,19 @@ ActiveRecord::Schema.define(:version => 20110424210912) do
   end
 
   add_index "profiles", ["email"], :name => "index_profiles_on_email", :unique => true
+
+  create_table "projetos", :force => true do |t|
+    t.integer  "profile_id"
+    t.string   "nome"
+    t.text     "descricao"
+    t.text     "motivacao"
+    t.string   "site"
+    t.integer  "completo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "projetos", ["nome"], :name => "index_projetos_on_nome"
+  add_index "projetos", ["profile_id"], :name => "index_projetos_on_profile_id"
 
 end

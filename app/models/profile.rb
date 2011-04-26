@@ -9,6 +9,9 @@ accepts_nested_attributes_for :cursos, :allow_destroy => true
 
 has_private_messages
 
+has_many :projects, :foreign_key => "profile_id" #talvez nao precise disso
+
+
 email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
 

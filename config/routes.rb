@@ -12,8 +12,9 @@ Tccapp::Application.routes.draw do
 
 #resources :profiles do
 #resources :cursos, :only => [:new, :create, :destroy]
-
 #end
+
+resources :projetos
 
 resources :sessions, :only => [:new, :create, :destroy]
 

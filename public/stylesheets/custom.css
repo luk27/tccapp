@@ -140,6 +140,15 @@ div.field, div.actions {
   background-color: #f0f0f0;
 }
 
+#projeto1 {
+  width: 640px;
+  padding: 1px;
+  padding-bottom: 1px;
+  margin-bottom: 30px;
+  border: 1px outset blue;
+}
+
+
 
 #error_explanation h2 {
   text-align: left;
