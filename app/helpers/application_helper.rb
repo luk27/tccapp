@@ -1,4 +1,7 @@
 module ApplicationHelper
+
+include TweetButton
+
   def title
     base_title = "TCC-APP"
     if @title.nil?

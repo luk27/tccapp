@@ -9,6 +9,7 @@
 <h2>
 <% if current_profile?(@profile) %>
 <font size = 4><%= link_to "Editar Profile", edit_profile_path(current_profile) %></font size>
+<%= tweet_button(:count => "none", :url => "http://lucaspn.heroku.com", :text => "Estou no TCC-APP, e vc? :)")%>
 <% else %>
 <td class="msg"><font size = 4>
 <%= link_to "Enviar Mensagem!", new_profile_message_path(current_profile, :mens=> @profile) %> 

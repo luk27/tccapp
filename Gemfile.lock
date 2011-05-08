@@ -80,6 +80,7 @@ GEM
     thor (0.14.6)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
+    tweet-button (0.1.0)
     tzinfo (0.3.24)
     webrat (0.7.1)
       nokogiri (>= 1.2.0)
@@ -97,5 +98,6 @@ DEPENDENCIES
   rails (= 3.0.5)
   rspec (= 2.5.0)
   rspec-rails (= 2.5.0)
+  tweet-button
   webrat (= 0.7.1)
   will_paginate (= 3.0.pre2)
