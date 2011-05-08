@@ -4,4 +4,9 @@
       Seja bem vindo visitante. Aqui você pode acessar informações sobre o projeto, logar no sistema ou criar uma nova conta.
     </p>
 <%= link_to "Crie sua conta agora!", cadastrar_path, :class => "signup_button round" %>
+  <%= tweet_button(:count => "none", :url => "http://lucaspn.heroku.com", :text => "Estou no TCC-APP, e vc? :)")%>
+  <div id="fb">
+
+  <%= facebook_like %>
+  </div>
 
