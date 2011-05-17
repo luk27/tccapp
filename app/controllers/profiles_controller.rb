@@ -38,7 +38,7 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @title = "Edit profile"
+    @title = "Editar Profile"
   end
 
   def update
@@ -47,7 +47,7 @@ class ProfilesController < ApplicationController
       flash[:success] = "Profile Atualizado."
       redirect_to @profile
     else
-      @title = "Edit profile"
+      @title = "Editar Profile"
       render 'edit'
     end
   end

@@ -15,7 +15,7 @@ before_filter :get_profile
 
 def get_profile
     @profile = Profile.find(params[:id_profile]) if params[:id_profile]
-    
+
 end
 
 def destroy
@@ -23,14 +23,14 @@ def destroy
   @curso = Curso.find(params[:id_curso])
   @curso.destroy
   redirect_to current_profile
-end 
+end
 
 ## DESTROY ANTIGO
   #def destroy
-  #  @profile= Profile.find(params[:id_profile])
-  #  @curso = Curso.find(params[:curso_id])
-  #  @curso.destroy
-  #  redirect_to current_profile
+  # @profile= Profile.find(params[:id_profile])
+  # @curso = Curso.find(params[:curso_id])
+  # @curso.destroy
+  # redirect_to current_profile
  # end
 ## DESTROY ANTIGO
 
@@ -71,4 +71,3 @@ def correct_profile_d
     end
 
 end
-

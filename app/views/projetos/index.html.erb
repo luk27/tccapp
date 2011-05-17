@@ -13,7 +13,7 @@
    Nome: <%= link_to projeto.nome, projeto %> <br>
    Descricao: <%= projeto.descricao %><br>
    Motivacao: <%= projeto.motivacao %><br>
-   Idealizador: ? 
+   Idealizador: <%= link_to projeto.profile.nome, projeto.profile%>
     </div>
   <% end %>
   </font size></p>

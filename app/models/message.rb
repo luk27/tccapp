@@ -7,7 +7,8 @@ class Message < ActiveRecord::Base
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-  
+  validates :subject, :presence => true,
+  :length   => { :minimum => 1 }
   #validates :to, :presence => true,
 #:length   => { :maximum => 35 },
 #:format   => { :with => email_regex },

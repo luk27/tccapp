@@ -23,10 +23,7 @@ resources :sessions, :only => [:new, :create, :destroy]
 
   
   match '/profiles/:id_profile/cursos/:id_curso', :to => 'cursos#destroy'
-  
-  
-  #TENTATIVA \/
-  #match '/profiles/:id_profile/cursos', :to => 'cursos#new'
+  #match '/projetos/:id_projeto/edit', :to => 'projetos#edit'
 
   match '/sair', :to => 'sessions#destroy'
 
