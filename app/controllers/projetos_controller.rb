@@ -17,7 +17,7 @@ def create
 	@projeto  = current_profile.projetos.build(params[:projeto])
 	if @projeto.save
 	  flash[:success] = "Projeto Criado!"
-	  redirect_to root_path
+	  redirect_to @projeto
 	else
 	  render 'new'
 	end
@@ -32,7 +32,7 @@ def destroy
   #@profile= Profile.find(params[:id_profile])
   @projeto = Projeto.find(params[:id])
   @projeto.destroy
-  redirect_to current_profile
+  redirect_to "/projetos"
 end 
 
   def edit
