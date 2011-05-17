@@ -10,9 +10,9 @@
   <% @projetos.each do |projeto| %>
   <div id="projeto1">
   <p>
-   Nome: <%= link_to (projeto.nome), projeto %> <br>
-   Descricao: <%= (projeto.descricao) %><br>
-   Motivacao: <%= (projeto.motivacao) %><br>
+   Nome: <%= link_to projeto.nome, projeto %> <br>
+   Descricao: <%= projeto.descricao %><br>
+   Motivacao: <%= projeto.motivacao %><br>
    Idealizador: ? 
     </div>
   <% end %>

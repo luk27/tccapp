@@ -1,8 +1,8 @@
 class ProjetosController < ApplicationController
+ #before_filter :authenticate, :only =>  [:create, :destroy]
 
 
  def new
-	##@dono = Profile.find(params[:profile_id])
 	@projeto = Projeto.new
   end
 
@@ -15,12 +15,6 @@ class ProjetosController < ApplicationController
   end
 
 def create
-##NEW TRY
-	##@dono = Profile.find(params[:profile_id])
-	##@projeto= @dono.projetos.build(params[:projeto])
-	##
-	
-
 	@projeto  = current_profile.projetos.build(params[:projeto])
 	if @projeto.save
 	  flash[:success] = "Projeto Criado!"
@@ -31,12 +25,17 @@ def create
   end
 
 
-
-
-
-
-def dono
-@profile = Profile.find(params[:id])
+  def show
+	@projeto = Projeto.find(params[:id])
+	##@dono= Profile.find(params[:profile_id])
+	@title = @projeto.nome
 end
+
+#def dono
+#@profile = Profile.find(params[:id])
+#end
+
+
+
 
 end

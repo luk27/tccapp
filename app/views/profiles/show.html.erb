@@ -52,4 +52,22 @@ Ingresso em: <span class="ingresso"><%=h curso.ano_ingresso %> - Encerra em: <sp
 <HR>
 </h2>
 
+<h3>
 
+Dono dos Projetos:
+
+<% for projeto in @profile.projetos %>
+<table class="cursos" summary="Cursos">
+<tr>
+
+
+<td class="curso"><font size = 3>
+<%= link_to projeto.nome, projeto %> - <%=h projeto.descricao %> 
+</font size = 3>
+  </td>
+
+</tr>
+</table>
+<% end %>
+<HR>
+</h3>

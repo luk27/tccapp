@@ -1,7 +1,7 @@
 <h1>Criar Projeto</h1>
 
 
-<%= form_for (@projeto) do |f| %>
+<%= form_for @projeto do |f| %>
 
   <div class="field">
 	<%= f.label :nome %><br />
@@ -20,7 +20,9 @@
 	<%= f.text_field :site %>
   </div>
     <div class="field">
+    
 	<%= f.label :completo%><br />
+  Inserir em % o quanto o projeto se encontra completo.<br>
 	<%= f.text_field :completo %>
   </div>
 
