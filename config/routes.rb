@@ -16,6 +16,7 @@ Tccapp::Application.routes.draw do
 #end
 
 resources :projetos
+resources :equipes
 
 resources :sessions, :only => [:new, :create, :destroy]
 

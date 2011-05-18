@@ -26,6 +26,7 @@ def create
   def show
 	@projeto = Projeto.find(params[:id])
 	@title = @projeto.nome
+	#@equipe = Equipe.new
 end
 
 def destroy
@@ -53,7 +54,22 @@ def update
 
 
 ####
+##TENTATIVA SUICIDA####
+def create_membership
+  @projeto = Projeto.find params[:id]
+  if @projeto.equipes.create( :member_id => params[:member_id])
+	redirect_to @projeto
+  else
+	 render :action => 'show'
+  end
 
+end
+
+
+####TENTATIVA SUICIDA####
+##<%= form_for :projeto, @projeto, :url => { :action => "create_membership" } do |f| %>
+##<%= submit_tag "Create" %>
+##<% end %>
 
  private
 
