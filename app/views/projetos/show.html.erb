@@ -2,11 +2,11 @@
 <%= javascript_include_tag :defaults %>
 <h1>
 <td class="projeto"><font size = 5>
-
+<% unless @projeto.profile == current_profile %>
 <% form_for(:equipe, :url => equipes_path(:membro_id => current_profile.id, :projeto_id => @projeto.id)) do |f| %>
 <%= submit_tag "Entrar no Projeto!" %>
 <% end %>
-
+<% end %>
 
 
 Nome:<%= @projeto.nome %><br>
