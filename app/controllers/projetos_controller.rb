@@ -55,21 +55,23 @@ def update
 
 ####
 ##TENTATIVA SUICIDA####
-def create_membership
-  @projeto = Projeto.find params[:id]
-  if @projeto.equipes.create( :member_id => params[:member_id])
-	redirect_to @projeto
-  else
-	 render :action => 'show'
-  end
+#def create_membership
+ # @projeto = Projeto.find params[:id]
+ # if @projeto.equipes.create( :member_id => params[:member_id])
+#	redirect_to @projeto
+ # else
+#	 render :action => 'show'
+ # end
 
-end
+#end
 
 
 ####TENTATIVA SUICIDA####
 ##<%= form_for :projeto, @projeto, :url => { :action => "create_membership" } do |f| %>
 ##<%= submit_tag "Create" %>
 ##<% end %>
+##<% form_for(:equipe, :url => { :action => "create", :membro_id => @profile.id, :projeto_id => @projeto.id}) do |f| %>
+##<% form_for(:equipe, :url => equipes_path(:membro_id => current_profile.id, :projeto_id => @projeto.id)) do |f| %>
 
  private
 

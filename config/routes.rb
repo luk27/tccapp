@@ -15,9 +15,11 @@ Tccapp::Application.routes.draw do
 #resources :cursos, :only => [:new, :create, :destroy]
 #end
 
-resources :projetos
+resources :projetos  ##TIRA O DO E O END QUALQUER COISA
 resources :equipes
-
+ 
+ 
+ 
 resources :sessions, :only => [:new, :create, :destroy]
 
   match '/entrar', :to => 'sessions#new'

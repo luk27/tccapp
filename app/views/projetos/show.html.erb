@@ -3,6 +3,10 @@
 <h1>
 <td class="projeto"><font size = 5>
 
+<% form_for(:equipe, :url => equipes_path(:membro_id => current_profile.id, :projeto_id => @projeto.id)) do |f| %>
+<%= submit_tag "Entrar no Projeto!" %>
+<% end %>
+
 
 
 Nome:<%= @projeto.nome %><br>
