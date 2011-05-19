@@ -72,3 +72,27 @@ Dono dos Projetos:
 <% end %>
 <HR>
 </h3>
+
+<h4>
+Participa dos Projetos:
+
+<% for equipe in @profile.equipes %>
+<% if equipe.membro_id == @profile.id %>
+<table class="cursos" summary="Cursos">
+<tr>
+
+
+<td class="curso"><font size = 3>
+<%=h equipe.membro_id %> 
+</font size = 3>
+  </td>
+
+</tr>
+</table>
+<% end %>
+<% end %>
+
+<HR>
+
+
+</h4>
