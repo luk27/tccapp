@@ -32,7 +32,6 @@ def create
 	#FUNCIONA ESSE EM#
 	#FUNFANDO MEU @pedido_projeto = @projeto.equipes.pedido.where(:projeto_id => @projeto.id)
 	@pedido_projeto = @profile.participacao_equipes.find_all_by_status(false,:include => [:projeto, :membro])
-	@teste = @projeto.equipes.find_all_by_membro_id(current_profile)
 end
 
 def destroy
