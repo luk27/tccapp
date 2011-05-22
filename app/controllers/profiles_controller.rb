@@ -11,6 +11,8 @@ class ProfilesController < ApplicationController
   def index
     @title = "Todos os Membros"
     @profiles = Profile.paginate(:page => params[:page])
+    #@search = Profile.search(params[:search]) #paradinhas nova da busca
+    #@profilesS = @search.all  #paradinhas nova da busca
   end
 
   def show
