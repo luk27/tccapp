@@ -41,6 +41,10 @@ resources :sessions, :only => [:new, :create, :destroy]
   match '/profiles/:id_profile/messages', :to => 'messages#index'
 
   match '/profiles/:id_profile/messages/:id_message', :to => 'messages#show'
+  
+ # match '/equipes/:id_equipe/', :to => 'profile/:membro_id/', :action => 'profile#show'
+  
+  #match '/equipes#show', :to => 'profile#show'
 
   root :to => 'paginas#home'
 

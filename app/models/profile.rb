@@ -9,8 +9,19 @@ accepts_nested_attributes_for :cursos, :allow_destroy => true
 
 has_private_messages
 
-has_many :projetos, :foreign_key => "profile_id" #talvez nao precise disso
-has_many :equipes, :foreign_key => "membro_id"
+  has_many :dono_projetos, :class_name => "Projeto", :foreign_key => :profile_id
+  has_many :participacao_equipes, :through => :dono_projetos, :source => :equipes
+  #####has_many :participacao_equipes, :class_name => "Projeto", :through => :equipes , :foreign_key => "membro_id"
+
+  has_many :projetos, :through => "equipes"
+  has_many :equipes, :foreign_key => "membro_id"
+
+
+##ANTIGO##
+#has_many :projetos, :foreign_key => "profile_id" #talvez nao precise disso
+#has_many :equipes, :foreign_key => "membro_id"
+##ANTIGO##
+
   #has_many :projetos_divididos, :class_name => "Projeto", :through => :equipes, :foreign_key => "membro_id"
 
 email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

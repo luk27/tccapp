@@ -14,7 +14,7 @@ before_filter :profile_projeto, :only => [:edit]
   end
 
 def create
-	@projeto  = current_profile.projetos.build(params[:projeto])
+	@projeto  = current_profile.dono_projetos.build(params[:projeto])
 	if @projeto.save
 	  flash[:success] = "Projeto Criado!"
 	  redirect_to @projeto
@@ -25,8 +25,14 @@ def create
 
   def show
 	@projeto = Projeto.find(params[:id])
+	#@equipe = Equipe.find.where(:projeto_id => params[:id])
 	@title = @projeto.nome
-	#@equipe = Equipe.new
+	#@profile = Profile.find(params[:id])
+	@profile = Profile.find(@projeto.profile_id)
+	#FUNCIONA ESSE EM#
+	#FUNFANDO MEU @pedido_projeto = @projeto.equipes.pedido.where(:projeto_id => @projeto.id)
+	@pedido_projeto = @profile.participacao_equipes.find_all_by_status(false,:include => [:projeto, :membro])
+	@teste = @projeto.equipes.find_all_by_membro_id(current_profile)
 end
 
 def destroy
@@ -72,6 +78,32 @@ def update
 ##<% end %>
 ##<% form_for(:equipe, :url => { :action => "create", :membro_id => @profile.id, :projeto_id => @projeto.id}) do |f| %>
 ##<% form_for(:equipe, :url => equipes_path(:membro_id => current_profile.id, :projeto_id => @projeto.id)) do |f| %>
+
+
+##<% for equipe in @profile.equipes %>
+##<% if equipe.membro_id == @profile.id %>
+
+##<% for equipe in @profile.equipes %>
+##<% if equipe.projeto_id == projeto.id %>
+##<%=h equipe.membro_id %> 
+
+#<%=h @profile.nome.where(:id => :membro_id) %>
+
+# <h5>
+#Teste:
+
+#<% @pedido_projeto.each do |agm| %>
+#  <p> 
+#	  Requester: <%= agm.membro.nome %>, 
+#	  Group: <%=agm.projeto.nome%> 
+ # </p>
+#<%end %>
+#<HR>
+
+
+#</h5>
+
+#<% for projeto in @profile.projetos %>
 
  private
 

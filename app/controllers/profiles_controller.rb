@@ -17,6 +17,11 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
     @title = @profile.nome
     @feed_items = @profile.feed.paginate(:page => params[:page])
+    #FUNFANDO MEU#@pedido_equipe = @profile.equipes.pedido.where(:membro_id => params[:id]) ## Aqui seria pra mostrar os projetos que participa o profile, depois de mudar eles pra true
+    @pedido_equipe = @profile.equipes.find_all_by_status(true) ##antes era.projetos eh do kara da net isso
+    ##params[:projeto] = {:id => @projeto.id}
+    ##@pedido_projeto = @projeto.equipes.pedido.where(:projeto_id => @projeto)
+    
   end
 
   def create

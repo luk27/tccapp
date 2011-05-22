@@ -18,5 +18,7 @@ include TweetButton
   def logo
     image_tag("logotcc.png", :alt => "TCC-APP", :class => "round")
   end
+  
+\
 
 end

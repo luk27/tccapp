@@ -57,7 +57,7 @@ Ingresso em: <span class="ingresso"><%=h curso.ano_ingresso %> - Encerra em: <sp
 
 Dono dos Projetos:
 
-<% for projeto in @profile.projetos %>
+<% for projeto in @profile.dono_projetos %>
 <table class="cursos" summary="Cursos">
 <tr>
 
@@ -76,23 +76,24 @@ Dono dos Projetos:
 <h4>
 Participa dos Projetos:
 
-<% for equipe in @profile.equipes %>
-<% if equipe.membro_id == @profile.id %>
+
+<% @pedido_equipe.each do |equipe| %>
 <table class="cursos" summary="Cursos">
 <tr>
 
 
 <td class="curso"><font size = 3>
-<%=h equipe.membro_id %> 
+<%= link_to equipe.projeto.nome, equipe.projeto %> - <%=h equipe.projeto.descricao %> 
 </font size = 3>
   </td>
 
 </tr>
 </table>
-<% end %>
-<% end %>
 
+<% end %>
 <HR>
 
 
 </h4>
+
+
