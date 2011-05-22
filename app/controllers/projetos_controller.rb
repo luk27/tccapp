@@ -110,6 +110,20 @@ def update
 #	<%=link_to("Aew manolo", equipe.update_attribute(:status,true))%>
 	#<%end %>
 	
+#<% @projeto.profiles.each do |m| %>
+
+#<% for m in @projeto.profiles %>
+#<%= link_to m.nome, m %> - 
+#<%end %>
+	
+	
+#<font size = 4>
+#Membros do Projeto:
+
+#</font size = 4>
+#<HR>
+
+
  private
 
 ## NOVO qualquer coisa ranca fora

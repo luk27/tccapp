@@ -1,5 +1,5 @@
 <%= csrf_meta_tag %>
-
+<%= javascript_include_tag :defaults %>
 <h1>
 <td class="profile"><font size = 5>
 <%= gravatar_for @profile %> <%= @profile.nome %> <%= @profile.sobrenome %>, <%= @profile.sexo %>. Nasceu em: <%= @profile.data_nascimento %></br>
@@ -83,7 +83,7 @@ Participa dos Projetos:
 
 
 <td class="curso"><font size = 3>
-<%= link_to equipe.projeto.nome, equipe.projeto %> - <%=h equipe.projeto.descricao %> 
+<%= link_to equipe.projeto.nome, equipe.projeto %> - <%=h equipe.projeto.descricao %>  <%= link_to "Deixar Projeto", equipe_path(equipe), :confirm => "Tem certeza?", :method => :delete %>
 </font size = 3>
   </td>
 

@@ -29,7 +29,7 @@ end
 def destroy
   @equipe= Equipe.find(params[:id])
   @equipe.destroy
-  flash[:success] = "Membro rejeitado."
+  #flash[:success] = "Membro rejeitado."
   redirect_to(:back)
 end
 

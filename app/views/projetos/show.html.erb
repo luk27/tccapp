@@ -1,21 +1,21 @@
 # encoding: utf-8 
 <%= csrf_meta_tag %>
 <%= javascript_include_tag :defaults %>
+<center><h1><%= @projeto.nome %></h1></center>
+<table class="projeto1" summary="Info do Projeto">
 <h1>
-<td class="projeto"><font size = 5>
+<td class="projeto2"><font size = 5>
 <% unless @projeto.profile == current_profile %>
 <% form_for(:equipe, :url => equipes_path(:membro_id => current_profile.id, :projeto_id => @projeto.id)) do |f| %>
 <%= submit_tag "Entrar no Projeto!" %>
 <% end %>
 <% end %>
 
-
-Nome:<%= @projeto.nome %><br>
-Descricao: <%= @projeto.descricao %><br>
-Motivacao: <%= @projeto.motivacao%><br>
-Site: <a href="http://<%= @projeto.site %>"><%= @projeto.site %></a><br>
-Completo: <%= @projeto.completo %>%</br>
-Dono: <%= link_to (@projeto.profile.nome) +" "+ (@projeto.profile.sobrenome), @projeto.profile%><br>
+Descricao:<font size = 4> <%= @projeto.descricao %><br></font size = 4>
+Motivacao: <font size = 4><%= @projeto.motivacao%><br></font size = 4>
+Site: <font size = 4><a href="http://<%= @projeto.site %>"><%= @projeto.site %></a><br></font size = 4>
+Completo: <font size = 4><%= @projeto.completo %>%</br></font size = 4>
+Dono: <font size = 4><%= link_to (@projeto.profile.nome) +" "+ (@projeto.profile.sobrenome), @projeto.profile%><br></font size =4>
 
 <% if profile_projeto?(current_profile) %>
 <font size = 4>
@@ -24,9 +24,11 @@ Dono: <%= link_to (@projeto.profile.nome) +" "+ (@projeto.profile.sobrenome), @p
 </font size = 4>
 <% else %>
 <% end %>
- </font size></td>
- </h1>
+ </font size>
+ 
  <HR>
+ 
+ 
 <% if profile_projeto?(current_profile)%>
 <font size = 4>
 Novos membros querendo entrar no projeto:
@@ -42,4 +44,13 @@ Novos membros querendo entrar no projeto:
 </font size = 4>
 <HR>
 <%end %>
+</td>
+</h1>
+<td class="sidebar round">
+  <strong>Membros do Projeto: </strong>
+ 
+    </td>
 
+ 
+    
+</table>

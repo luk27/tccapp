@@ -188,3 +188,10 @@ ul.users {
   list-style: none;
 }
 
+td.sidebar {
+  width: 27%;
+  padding: 1em;
+  vertical-align: top;
+  background: #C3FDB8;
+}
+
