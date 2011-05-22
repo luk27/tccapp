@@ -11,6 +11,27 @@ def new
 @equipe = Equipe.new
 end
 
+def edit
+
+end
+
+
+def update
+    @equipe = Equipe.find(params[:id])
+    if @equipe.update_attributes(params[:equipe])
+      flash[:success] = "Membro aceito :)."
+    redirect_to(:back)
+    else
+      redirect_to current_profile
+    end
+end
+
+def destroy
+  @equipe= Equipe.find(params[:id])
+  @equipe.destroy
+  flash[:success] = "Membro rejeitado."
+  redirect_to(:back)
+end
 
 
 

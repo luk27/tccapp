@@ -104,6 +104,12 @@ def update
 
 #<% for projeto in @profile.projetos %>
 
+#<%=link_to("Aew manolo", equipe_path(agm, :status => true), :method => :put, :confirm => "Tas louco?")%>
+
+#	<% for equipe in @pedido_projeto %>
+#	<%=link_to("Aew manolo", equipe.update_attribute(:status,true))%>
+	#<%end %>
+	
  private
 
 ## NOVO qualquer coisa ranca fora

@@ -3,7 +3,7 @@
 <%= javascript_include_tag :defaults %>
 <h1>
 <td class="projeto"><font size = 5>
-<% unless @projeto.profile == current_profile || @projeto.equipes == @profile.equipes%>
+<% unless @projeto.profile == current_profile %>
 <% form_for(:equipe, :url => equipes_path(:membro_id => current_profile.id, :projeto_id => @projeto.id)) do |f| %>
 <%= submit_tag "Entrar no Projeto!" %>
 <% end %>
@@ -33,7 +33,9 @@ Novos membros querendo entrar no projeto:
 <% @pedido_projeto.each do |agm| %>
 <% if agm.projeto.id == @projeto.id%>
   <p> 
-	  <%= link_to agm.membro.nome, agm.membro %>
+	  <%= link_to agm.membro.nome, agm.membro %> - 
+    <%=link_to("Aceitar", equipe_path(agm, "equipe[status]" => true), :method => :put, :confirm => "Tem certeza?")%> - 
+    <%= link_to "Rejeitar", equipe_path(agm), :confirm => "Tem certeza?", :method => :delete %>
   </p>
 <%end %>
 <%end %>
