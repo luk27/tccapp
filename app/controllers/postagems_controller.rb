@@ -29,7 +29,9 @@ end
   end
 
   def destroy
-  
+  @postagem = Postagem.find(params[:id])
+  	@postagem.destroy
+	redirect_to(:back)
   end
 
 

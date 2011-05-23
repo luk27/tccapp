@@ -9,21 +9,21 @@ accepts_nested_attributes_for :cursos, :allow_destroy => true
 
 has_private_messages
 
-  has_many :dono_projetos, :class_name => "Projeto", :foreign_key => :profile_id
-  has_many :participacao_equipes, :through => :dono_projetos, :source => :equipes
+  has_many :dono_projetos, :class_name => "Projeto", :foreign_key => :profile_id, :dependent => :destroy
+  has_many :participacao_equipes, :through => :dono_projetos, :source => :equipes, :dependent => :destroy
   #####has_many :participacao_equipes, :class_name => "Projeto", :through => :equipes , :foreign_key => "membro_id"
 
-  has_many :projetos, :through => "equipes"
-  has_many :equipes, :foreign_key => "membro_id"
+  has_many :projetos, :through => "equipes", :dependent => :destroy
+  has_many :equipes, :foreign_key => "membro_id", :dependent => :destroy
 
 
 ###PARTE NOVA DO CACHORRO#####
- has_many :projetos_aprovados, :through => :equipes, :source => :projeto, :conditions => [ "equipes.status = ? ", true]
+ has_many :projetos_aprovados, :through => :equipes, :source => :projeto, :conditions => [ "equipes.status = ? ", true], :dependent => :destroy
 
-  has_many :projetos_aplicados, :through => :equipes, :source => :projeto, :conditions => [ "equipes.status = ? ", false]
+  has_many :projetos_aplicados, :through => :equipes, :source => :projeto, :conditions => [ "equipes.status = ? ", false], :dependent => :destroy
 ################################
 
-has_many :postagems
+has_many :postagems, :dependent => :destroy
 
 ##ANTIGO##
 #has_many :projetos, :foreign_key => "profile_id" #talvez nao precise disso

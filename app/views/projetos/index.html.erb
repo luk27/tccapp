@@ -1,23 +1,28 @@
 <%= csrf_meta_tag %>
 <h1>Todos os Projetos</h1>
-
+<table>
 <%= will_paginate %>
 <div>
 <h2><%= link_to "Criar Projeto!", new_projeto_path %></h2>
 <ul class="projetos">
 
+
+ 
+
+<td class="pro round">
 <font size = 4>
-  <% @projetos.each do |projeto| %>
-  <div id="projeto1">
-  <p>
+<% @projetos.each do |projeto| %>
+
+<div>
    Nome: <%= link_to projeto.nome, projeto %> <br>
    Descricao: <%= projeto.descricao %><br>
    Motivacao: <%= projeto.motivacao %><br>
    Idealizador: <%= link_to projeto.profile.nome, projeto.profile%>
-    </div>
+   <hr size="10" noshade>
+     <div>
   <% end %>
-  </font size></p>
- 
-</ul>
+  </td>
+  </font size=4>
 
-<%= will_paginate %>
+<%= will_paginate @projetos %>
+</table>
