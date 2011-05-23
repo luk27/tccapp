@@ -1,13 +1,15 @@
+<table class="mensagem1" summary="Mensagens">
 <p><strong>De:</strong> <%= @message.sender == @profile ? link_to("Eu", profile_path(@profile)) : link_to(h(@message.sender.email), profile_path(@message.sender)) %></p>
 <p><strong>Recebida em:</strong> <%= @message.created_at.to_s(:long) %></p>
 <p><strong>Para:</strong> <%= @message.recipient == @profile ? link_to("Eu", profile_path(@profile)) : link_to(h(@message.recipient.email), profile_path(@profile)) %></p>
-<p>
+<td class="mensagem27 round">
   <strong>Mensagem</strong><br />
-  <%=h @message.body %>
-</p>
+  <%=@message.body %>
+</td>
 <p>
   <% if @message.recipient == @profile %>
 	  <%= link_to "Responder", new_profile_message_path(@profile, :reply_to => @message) %> |
   <% end %>
   <%= link_to "Caixa de Entrada", profile_messages_path(@profile)%>
 </p>
+</table>
