@@ -4,7 +4,7 @@
 <p><strong>Para:</strong> <%= @message.recipient == @profile ? link_to("Eu", profile_path(@profile)) : link_to(h(@message.recipient.email), profile_path(@profile)) %></p>
 <td class="mensagem27 round">
   <strong>Mensagem</strong><br />
-  <%=@message.body %>
+  <%= simple_format(@message.body) %>
 </td>
 <p>
   <% if @message.recipient == @profile %>
