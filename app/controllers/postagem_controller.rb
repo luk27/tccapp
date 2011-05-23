@@ -1,0 +1,2 @@
+class PostagemController < ApplicationController
+end

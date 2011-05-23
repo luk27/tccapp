@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110518183328) do
+ActiveRecord::Schema.define(:version => 20110523002622) do
 
   create_table "cursos", :force => true do |t|
     t.integer  "profile_id"
@@ -49,6 +49,17 @@ ActiveRecord::Schema.define(:version => 20110518183328) do
 
   add_index "messages", ["recipient_id"], :name => "index_messages_on_recipient_id"
   add_index "messages", ["sender_id"], :name => "index_messages_on_sender_id"
+
+  create_table "postagems", :force => true do |t|
+    t.integer  "projeto_id"
+    t.integer  "profile_id"
+    t.text     "post"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "postagems", ["profile_id"], :name => "index_postagems_on_profile_id"
+  add_index "postagems", ["projeto_id"], :name => "index_postagems_on_projeto_id"
 
   create_table "profiles", :force => true do |t|
     t.string   "nome"
