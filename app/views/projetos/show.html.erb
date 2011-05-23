@@ -43,6 +43,30 @@ Novos membros querendo entrar no projeto:
 </font size = 4>
 <HR>
 <%end %>
+<% if @projeto.profile == current_profile  ||  current_profile.projetos_aprovados.exists?(@projeto) %>
+ <% form_for(Postagem.new, :url => postagems_path(:profile_id => current_profile.id, :projeto_id => @projeto.id)) do |f| %>
+<%= f.text_area :conteudo, :rows=>5 , :cols=>49 %> 
+<%= f.submit "Enviar" %></br> </br>
+<HR>
+    <%end %>
+    <%end %>
+Mensagens Recentes:
+
+       <% unless @postagems.empty? %>
+        <table class="posts" summary="Postagems do Projeto">
+        <% @postagems.each do |postagem| %>
+          <tr>
+  <td class="posts">
+    <span class="content"><%= postagem.conteudo %></span></br>
+    <span class="timestamp">
+    <%= gravatar_projeto postagem.profile %> <%= link_to postagem.profile.nome, postagem.profile %>  <%= time_ago_in_words(postagem.created_at) %> ago.
+    </span>
+  </td>
+</tr>
+  <% end %>
+        </table>
+        <%= will_paginate @postagems%>
+         <%end %>
 </td>
 </h1>
 <td class="sidebar round">
@@ -54,9 +78,5 @@ Novos membros querendo entrar no projeto:
 <%end %>
     </td>
 
- <% form_for(:postagem, :url => postagems_path(:profile_id => current_profile.id, :projeto_id => @projeto.id)) do |f| %>
-<%= f.text_area :conteudo %> 
-<%= f.submit "Submit" %>
-    <%end %>
-    
+
 </table>

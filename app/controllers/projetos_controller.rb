@@ -24,16 +24,15 @@ def create
   end
 
   def show
-    @postagem = Postagem.new ## COISA NOVA DA POSTAGEM
+    #@postagem = Postagem.new ## COISA NOVA DA POSTAGEM
 	@projeto = Projeto.find(params[:id])
-	#@equipe = Equipe.find.where(:projeto_id => params[:id])
 	@title = @projeto.nome
-	#@profile = Profile.find(params[:id])
 	@profile = Profile.find(@projeto.profile_id)
 	#FUNCIONA ESSE EM#
 	#FUNFANDO MEU @pedido_projeto = @projeto.equipes.pedido.where(:projeto_id => @projeto.id)
 	@pedido_projeto = @profile.participacao_equipes.find_all_by_status(false,:include => [:projeto, :membro])
 	@pedido_aceito = @profile.participacao_equipes.find_all_by_status(true,:include => [:projeto, :membro])
+	@postagems = @projeto.postagems.paginate(:page => params[:page])
 end
 
 def destroy
@@ -128,6 +127,10 @@ def update
 
 # <% form_for(:postagem, :url => projeto_postagem_path(:profile_id => current_profile.id, :projeto_id => @projeto.id)) do |f| %>
 
+#<% for postagem in @projeto.postagems %>
+#<%= postagem.conteudo %> <%= postagem.profile.nome %> 
+ #<%end %>
+ 
  private
 
 ## NOVO qualquer coisa ranca fora

@@ -18,9 +18,10 @@ end
 
  def create
     @profile = Profile.find(current_profile)
-	@postagem = Postagem.create(:projeto => Projeto.find(params[:projeto_id]), :profile => Profile.find(current_profile))
+	@postagem = Postagem.create params[:postagem].merge(:projeto => Projeto.find(params[:projeto_id]), :profile => Profile.find(current_profile))
+	#@postagem = Postagem.create(:projeto => Projeto.find(params[:projeto_id]), :profile => Profile.find(current_profile))
 	if @postagem.save
-	  flash[:success] = "Aew"
+	  flash[:success] = "Mensagem criada com sucesso."
 	  redirect_to(:back)
 	else
 	  redirect_to(:back)

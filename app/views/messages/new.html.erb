@@ -13,7 +13,7 @@
     </p>
     <p>
       Mensagem<br />
-      <%= f.text_area :body %>
+      <%= f.text_area :body,:rows=>10 , :cols=>60  %>
 			<%= error_message_on @message, :body %>
     </p>
     <p>
