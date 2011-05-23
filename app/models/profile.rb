@@ -17,6 +17,11 @@ has_private_messages
   has_many :equipes, :foreign_key => "membro_id"
 
 
+###PARTE NOVA DO CACHORRO#####
+ has_many :projetos_aprovados, :through => :equipes, :source => :projeto, :conditions => [ "equipes.status = ? ", true]
+
+  has_many :projetos_aplicados, :through => :equipes, :source => :projeto, :conditions => [ "equipes.status = ? ", false]
+################################
 ##ANTIGO##
 #has_many :projetos, :foreign_key => "profile_id" #talvez nao precise disso
 #has_many :equipes, :foreign_key => "membro_id"

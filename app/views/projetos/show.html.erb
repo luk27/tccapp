@@ -1,11 +1,10 @@
-# encoding: utf-8 
 <%= csrf_meta_tag %>
 <%= javascript_include_tag :defaults %>
 <center><h1><%= @projeto.nome %></h1></center>
 <table class="projeto1" summary="Info do Projeto">
 <h1>
 <td class="projeto2"><font size = 5>
-<% unless @projeto.profile == current_profile  %>
+<% unless @projeto.profile == current_profile  ||  current_profile.projetos_aprovados.exists?(@projeto) || current_profile.projetos_aplicados.exists?(@projeto) %>
 <% form_for(:equipe, :url => equipes_path(:membro_id => current_profile.id, :projeto_id => @projeto.id)) do |f| %>
 <%= submit_tag "Entrar no Projeto!" %>
 <% end %>
@@ -48,7 +47,11 @@ Novos membros querendo entrar no projeto:
 </h1>
 <td class="sidebar round">
   <strong>Membros do Projeto: </strong>
- 
+  <% @pedido_aceito.each do |agm| %>
+  <% if agm.projeto.id == @projeto.id%>
+  <%= gravatar_projeto agm.membro %> <%= link_to agm.membro.nome, agm.membro %></br>
+  <%end %>
+<%end %>
     </td>
 
  

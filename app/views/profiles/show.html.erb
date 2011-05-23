@@ -83,7 +83,7 @@ Participa dos Projetos:
 
 
 <td class="curso"><font size = 3>
-<%= link_to equipe.projeto.nome, equipe.projeto %> - <%=h equipe.projeto.descricao %>  <%= link_to "Deixar Projeto", equipe_path(equipe), :confirm => "Tem certeza?", :method => :delete %>
+<%= link_to equipe.projeto.nome, equipe.projeto %> - <%=h equipe.projeto.descricao %> <% if current_profile?(@profile) %> <%= link_to "Deixar Projeto", equipe_path(equipe), :confirm => "Tem certeza?", :method => :delete %> <% end %>
 </font size = 3>
   </td>
 
