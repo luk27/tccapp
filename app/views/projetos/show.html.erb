@@ -54,6 +54,9 @@ Novos membros querendo entrar no projeto:
 <%end %>
     </td>
 
- 
+ <% form_for(:postagem, :url => postagems_path(:profile_id => current_profile.id, :projeto_id => @projeto.id)) do |f| %>
+<%= f.text_area :conteudo %> 
+<%= f.submit "Submit" %>
+    <%end %>
     
 </table>

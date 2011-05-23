@@ -22,6 +22,9 @@ has_private_messages
 
   has_many :projetos_aplicados, :through => :equipes, :source => :projeto, :conditions => [ "equipes.status = ? ", false]
 ################################
+
+has_many :postagems
+
 ##ANTIGO##
 #has_many :projetos, :foreign_key => "profile_id" #talvez nao precise disso
 #has_many :equipes, :foreign_key => "membro_id"

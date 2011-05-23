@@ -24,6 +24,7 @@ def create
   end
 
   def show
+    @postagem = Postagem.new ## COISA NOVA DA POSTAGEM
 	@projeto = Projeto.find(params[:id])
 	#@equipe = Equipe.find.where(:projeto_id => params[:id])
 	@title = @projeto.nome
@@ -124,6 +125,8 @@ def update
 #</font size = 4>
 #<HR>
 
+
+# <% form_for(:postagem, :url => projeto_postagem_path(:profile_id => current_profile.id, :projeto_id => @projeto.id)) do |f| %>
 
  private
 

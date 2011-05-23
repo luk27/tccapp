@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110523002622) do
+ActiveRecord::Schema.define(:version => 20110523044231) do
 
   create_table "cursos", :force => true do |t|
     t.integer  "profile_id"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(:version => 20110523002622) do
   create_table "postagems", :force => true do |t|
     t.integer  "projeto_id"
     t.integer  "profile_id"
-    t.text     "post"
+    t.text     "conteudo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

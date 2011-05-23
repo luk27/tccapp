@@ -17,7 +17,8 @@ Tccapp::Application.routes.draw do
 
 resources :projetos  ##TIRA O DO E O END QUALQUER COISA
 resources :equipes
- 
+
+resources :postagems
  
  
 resources :sessions, :only => [:new, :create, :destroy]
