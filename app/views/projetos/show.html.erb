@@ -62,7 +62,7 @@ Mensagens Recentes:
   <td class="posts">
     <span class="content"><%= postagem.conteudo %></span></br>
     <span class="timestamp">
-    <%= gravatar_projeto postagem.profile %> <%= link_to postagem.profile.nome, postagem.profile %>  <%= time_ago_in_words(postagem.created_at) %> ago.<% if current_profile == postagem.profile %> <%= link_to "Deletar Mensagem", postagem, :method => :delete,
+    <%= gravatar_projeto postagem.profile %> <%= link_to postagem.profile.nome, postagem.profile %>  <%= time_ago_in_words(postagem.created_at) %> ago.<% if current_profile == postagem.profile || current_profile == @projeto.profile %> <%= link_to "Deletar Mensagem", postagem, :method => :delete,
                                      :confirm => "Quer realmente deletar a mensagem?"%>  <% end %>
     </span>
   </td>
