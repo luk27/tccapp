@@ -145,7 +145,18 @@ def update
   #:avaliado => agm.membro.id)) do |f| %>
 #<%= submit_tag "Avaliar..." %>
  # <%end %>
+ 
+ #<% form_for(:avaliacao, :url => avaliacaos_path(:projeto_id => @projeto.id, :profile => current_profile.id,
+ # :avaliado => agm.membro.id)) do |f| %>
+#<%= submit_tag "NAO CLIQUE!!!!" %>
 
+
+#<% form_for(:avaliacao, :url => avaliacaos_path(:projeto_id, :profile,
+ #:avaliado)) do |f| %>
+ 
+#  <%= link_to "Avaliar!", new_avaliacao_path(:projeto_id => @projeto.id, :profile => current_profile.id,
+ # :avaliado => agm.membro.id) %>  
+ 
  private
 
 ## NOVO qualquer coisa ranca fora

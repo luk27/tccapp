@@ -1,0 +1,54 @@
+<h1>Avaliar Membro</h1>
+
+<% form_for(:avaliacao, :url => avaliacaos_path(:projeto_id, :profile,
+ :avaliado)) do |f| %>
+ 
+   <div class="field">
+	<%= f.label :texto %><br />
+	<%= f.text_field :texto %>
+  </div>
+  
+     <div class="field">
+	<%= f.label :nota %><br />
+	<%= f.text_field :nota %>
+  </div>
+  
+     <div class="field">
+	<%= f.label :nivel_habilidade %><br />
+	<%= f.text_field :nivel_habilidade %>
+  </div>
+  
+     <div class="field">
+	<%= f.label :comprometimento %><br />
+	<%= f.text_field :comprometimento %>
+  </div>
+  
+     <div class="field">
+	<%= f.label :tempo_demora %><br />
+	<%= f.text_field :tempo_demora %>
+  </div>
+  
+     <div class="field">
+	<%= f.label :criatividade %><br />
+	<%= f.text_field :criatividade%>
+  </div>
+  
+     <div class="field">
+	<%= f.label :organicazao %><br />
+	<%= f.text_field :organicazao %>
+  </div>
+  
+     <div class="field">
+	<%= f.label :comunicacao%><br />
+	<%= f.text_field :comunicacao %>
+  </div>
+  
+     <div class="field">
+	<%= f.label :trabalho_grupo %><br />
+	<%= f.text_field :trabalho_grupo %>
+  </div>
+  
+   <div class="actions">
+	<%= f.submit "Finalizar" %>
+  </div>
+<% end %>
