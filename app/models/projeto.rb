@@ -16,7 +16,10 @@ has_many :membros, :class_name => "Profile", :through => "equipes", :foreign_key
 has_many :postagems, :dependent => :destroy
 
 
+###AVALIACOES
+has_many :avaliacoes,:foreign_key => "projeto_id"
 
+#########
 
 
 validates :nome, :presence => true,

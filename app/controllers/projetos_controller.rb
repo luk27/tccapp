@@ -131,6 +131,21 @@ def update
 #<%= postagem.conteudo %> <%= postagem.profile.nome %> 
  #<%end %>
  
+ #</h1>
+#<td class="sidebar round">
+ # <strong>Membros do Projeto: </strong>
+ # <% @pedido_aceito.each do |agm| %>
+ # <% if agm.projeto.id == @projeto.id%>
+ # <%= gravatar_projeto agm.membro %> <%= link_to agm.membro.nome, agm.membro %></br>
+ # <%end %>
+#<%end %>
+#	</td>
+
+#  <% form_for(:avaliacao, :url => avaliacaos_path(:projeto_id => @projeto.id, :profile => current_profile.id,
+  #:avaliado => agm.membro.id)) do |f| %>
+#<%= submit_tag "Avaliar..." %>
+ # <%end %>
+
  private
 
 ## NOVO qualquer coisa ranca fora

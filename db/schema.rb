@@ -10,7 +10,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110523044231) do
+ActiveRecord::Schema.define(:version => 20110523235835) do
+
+  create_table "avaliacaos", :force => true do |t|
+    t.integer  "projeto_id"
+    t.integer  "profile_id"
+    t.integer  "avaliado_id"
+    t.text     "texto"
+    t.integer  "nota"
+    t.integer  "nivel_habilidade"
+    t.integer  "comprometimento"
+    t.integer  "tempo_demora"
+    t.integer  "criatividade"
+    t.integer  "organicazao"
+    t.integer  "comunicacao"
+    t.integer  "trabalho_grupo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "avaliacaos", ["avaliado_id"], :name => "index_avaliacoes_on_avaliado_id"
+  add_index "avaliacaos", ["profile_id"], :name => "index_avaliacoes_on_profile_id"
+  add_index "avaliacaos", ["projeto_id"], :name => "index_avaliacoes_on_projeto_id"
 
   create_table "cursos", :force => true do |t|
     t.integer  "profile_id"

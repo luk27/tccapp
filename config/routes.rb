@@ -17,6 +17,7 @@ Tccapp::Application.routes.draw do
 
 resources :projetos  ##TIRA O DO E O END QUALQUER COISA
 resources :equipes
+resources :avaliacaos
 
 resources :postagems
  

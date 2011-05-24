@@ -63,7 +63,7 @@ Dono dos Projetos:
 
 
 <td class="curso"><font size = 3>
-<%= link_to projeto.nome, projeto %> - <%=h projeto.descricao %> 
+<%= link_to projeto.nome, projeto %> - <%=h projeto.descricao %><% if current_profile?(@profile) %> - <%= link_to "Delete", projeto_path(projeto), :confirm => "Tem certeza que quer deletar seu projeto?", :method => :delete %> <% end %>
 </font size = 3>
   </td>
 

@@ -25,6 +25,14 @@ has_private_messages
 
 has_many :postagems, :dependent => :destroy
 
+#AVALIACOES
+has_many :avaliacoes, :dependent => :destroy, :foreign_key => :avaliado_id
+has_many :avaliadores, :through => :avaliacoes, :foreign_key => :profile_id
+
+#####################
+
+
+
 ##ANTIGO##
 #has_many :projetos, :foreign_key => "profile_id" #talvez nao precise disso
 #has_many :equipes, :foreign_key => "membro_id"
