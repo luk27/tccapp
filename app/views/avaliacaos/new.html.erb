@@ -1,7 +1,11 @@
 <h1>Avaliar Membro</h1>
 
-<% form_for(:avaliacao, :url => avaliacaos_path(:projeto_id, :profile,
- :avaliado)) do |f| %>
+<% form_for @avaliacao do |f| %>
+ 
+ <%= f.hidden_field :projeto, :value => @projeto.id %>
+ <%= f.hidden_field :profile, :value => current_profile.id %>
+ <%= f.hidden_field :avaliado, :value => @avaliado.id %>
+ 
  
    <div class="field">
 	<%= f.label :texto %><br />

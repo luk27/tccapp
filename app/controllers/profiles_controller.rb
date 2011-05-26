@@ -23,6 +23,7 @@ class ProfilesController < ApplicationController
     @pedido_equipe = @profile.equipes.find_all_by_status(true) ##antes era.projetos eh do kara da net isso
     ##params[:projeto] = {:id => @projeto.id}
     ##@pedido_projeto = @projeto.equipes.pedido.where(:projeto_id => @projeto)
+     @avaliacaos = Avaliacao.paginate(:page => params[:page], :per_page => Avaliacao.per_page)
     
   end
 

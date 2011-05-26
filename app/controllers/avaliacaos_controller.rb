@@ -19,17 +19,28 @@ def create
 #:profile => Profile.find(current_profile), 
 #:avaliado => Profile.find(agm.membro.id))#:avaliado => Profile.find(params[:profile_id]))
 #end
-@avaliacao = Avaliacao.create(:projeto => Projeto.find(params[:projeto_id]), 
-:profile => Profile.find(params[:profile]),
-:avaliado => Profile.find(params[:avaliado]))
+#@projeto = Projeto.find(params[:projeto_id])
+#puts "AEW LOL"
+#puts @projeto.id
+@avaliacao  = Avaliacao.new(params[:avaliacao])
+
+#@avaliacao = Avaliacao.new(:projeto => Projeto.find(params[:avaliacao][:projeto]), 
+#:profile => Profile.find(params[:avaliacao][:profile]),
+#:avaliado => Profile.find(params[:avaliacao][:avaliado]))
+#@projeto = Projeto.find(params[:avaliacao][:projeto])
 if @avaliacao.save
-flash[:success] = "LOL."
+flash[:success] = "Avaliacao Criada com Sucesso."
 redirect_to (:back)
 else
 redirect_to (:back)
 end
 end
 
+
+
+def index
+
+end
 
 def show
 

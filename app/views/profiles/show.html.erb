@@ -96,4 +96,24 @@ Participa dos Projetos:
 
 </h4>
 
+<h5>
+
+Avaliacoes:
+</br>
+<% unless @avaliacaos.empty? %>
+<% @avaliacaos.each do |av| %>
+<% if av.avaliado_id == @profile.id %>
+
+<%= av.texto %>
+
+ <%= will_paginate @avaliacaos%>
+<% end %>
+<% end %>
+<% end %>
+<HR>
+
+
+</h5>
+
+
 

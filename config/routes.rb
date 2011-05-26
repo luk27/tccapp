@@ -20,9 +20,6 @@ resources :equipes
 
 
 resources :avaliacaos
-#match "/avaliacao" => "avaliacaos#create", :as=>"my_custom_new_avaliacao" #Coisa do kara
-#match "avaliacaos/:projeto/:profile/:avaliado" => "avaliacaos#new", :as=>"my_custom_new_avaliacao"
-#match "/avaliacaos" => "avaliacaos#new", :as=>"my_custom_new_avaliacao"
 
 
 resources :postagems
