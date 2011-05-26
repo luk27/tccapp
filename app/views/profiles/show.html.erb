@@ -96,24 +96,64 @@ Participa dos Projetos:
 
 </h4>
 
-<h5>
+<h3>
 
 Avaliacoes:
 </br>
+</br>
+<table class="cursos" summary="Cursos">
+<tr>
+
+
+<td class="curso"><font size = 3>
 <% unless @avaliacaos.empty? %>
 <% @avaliacaos.each do |av| %>
-<% if av.avaliado_id == @profile.id %>
 
-<%= av.texto %>
+<strong>Avaliador:</strong> <%= link_to av.profile.nome+" "+av.profile.sobrenome, av.profile %> </br>
+<strong>Participacao no Projeto:</strong> <%= link_to av.projeto.nome, av.projeto %></br>
+<strong>Nota:</strong> <%= av.nota %> </br>
+<strong>Comentarios:</strong> <%= av.texto %> </br>
+<hr>
+<table border="1">
+<tr>
+<th>Nivel de Habilidade</th>
+<th>Comprometimento</th>
+<th>Tempo de Demora</th>
+</tr>
+<tr>
+<td><%= av.nivel_habilidade %></td>
+<td><%= av.comprometimento %></td>
+<td><%= av.tempo_demora %></td>
+</tr>
+</table> 
+<table border="2">
+<tr>
+<th>Criatividade</th>
+<th>Organizacao</th>
+<th>Trabalho em Grupo</th>
+<th>Comunicacao</th>
+</tr>
+<tr>
+<td><%= av.criatividade %></td>
+<td><%= av.organicazao %></td>
+<td><%= av.trabalho_grupo %></td>
+<td><%= av.comunicacao %></td>
+</tr>
+</table> 
+</font size = 3>
+  </td>
 
- <%= will_paginate @avaliacaos%>
+</tr>
+</table>
+
+
 <% end %>
 <% end %>
-<% end %>
+<font size =3><%= will_paginate @avaliacaos%></font size =3>
 <HR>
 
 
-</h5>
+</h3>
 
 
 

@@ -14,12 +14,16 @@ Descricao:<font size = 4> <%= @projeto.descricao %><br></font size = 4>
 Motivacao: <font size = 4><%= @projeto.motivacao%><br></font size = 4>
 Site: <font size = 4><a href="http://<%= @projeto.site %>"><%= @projeto.site %></a><br></font size = 4>
 Completo: <font size = 4><%= @projeto.completo %>%</br></font size = 4>
-Dono: <font size = 4><%= link_to (@projeto.profile.nome) +" "+ (@projeto.profile.sobrenome), @projeto.profile%><br></font size =4>
+Dono: <font size = 4><%= link_to (@projeto.profile.nome) +" "+ (@projeto.profile.sobrenome), @projeto.profile%></font size =4>
+<% if @projeto.profile != current_profile  &&  current_profile.projetos_aprovados.exists?(@projeto) && @projeto.completo == 100 %>
+<font size = 3> - <%= link_to "Avaliar!", new_avaliacao_path(:projeto_id => @projeto.id, :profile => current_profile.id,
+  :avaliado => @projeto.profile.id) %> 
+ </font size = 3> <% end %>
 
 <% if profile_projeto?(current_profile) %>
 <font size = 4>
-<%= link_to "Editar Projeto", edit_projeto_path(@projeto) %> |
-<%= link_to "Delete", projeto_path(@projeto), :confirm => "Tem certeza que quer deletar seu projeto?", :method => :delete %>
+ - <%= link_to "Editar Projeto", edit_projeto_path(@projeto) %> |
+<%= link_to "Deletar Projeto", projeto_path(@projeto), :confirm => "Tem certeza que quer deletar seu projeto?", :method => :delete %>
 </font size = 4>
 <% else %>
 <% end %>
@@ -79,8 +83,10 @@ Mensagens Recentes:
   <% @pedido_aceito.each do |agm| %>
   <% if agm.projeto.id == @projeto.id%>
   <%= gravatar_projeto agm.membro %> <%= link_to agm.membro.nome, agm.membro %></br>
+  <% if @projeto.profile == current_profile && @projeto.completo == 100 %>
   <%= link_to "Avaliar!", new_avaliacao_path(:projeto_id => @projeto.id, :profile => current_profile.id,
-  :avaliado => agm.membro.id) %> 
+  :avaliado => agm.membro.id) %> </br>
+  <%end %>
 <%end %>
 <%end %>
     </td>

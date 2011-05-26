@@ -11,23 +11,19 @@ has_private_messages
 
   has_many :dono_projetos, :class_name => "Projeto", :foreign_key => :profile_id, :dependent => :destroy
   has_many :participacao_equipes, :through => :dono_projetos, :source => :equipes, :dependent => :destroy
-  #####has_many :participacao_equipes, :class_name => "Projeto", :through => :equipes , :foreign_key => "membro_id"
 
   has_many :projetos, :through => "equipes", :dependent => :destroy
   has_many :equipes, :foreign_key => "membro_id", :dependent => :destroy
 
-
-###PARTE NOVA DO CACHORRO#####
- has_many :projetos_aprovados, :through => :equipes, :source => :projeto, :conditions => [ "equipes.status = ? ", true], :dependent => :destroy
-
+  has_many :projetos_aprovados, :through => :equipes, :source => :projeto, :conditions => [ "equipes.status = ? ", true], :dependent => :destroy
   has_many :projetos_aplicados, :through => :equipes, :source => :projeto, :conditions => [ "equipes.status = ? ", false], :dependent => :destroy
-################################
+
 
 has_many :postagems, :dependent => :destroy
 
 #AVALIACOES
-has_many :avaliacoes, :dependent => :destroy, :foreign_key => :avaliado_id
-has_many :avaliadores, :through => :avaliacoes, :foreign_key => :profile_id
+has_many :avaliacaos, :dependent => :destroy, :foreign_key => "avaliado_id"
+has_many :avaliadores, :through => :avaliacaos, :source => :profile, :foreign_key => "profile_id"
 
 #####################
 

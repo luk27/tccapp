@@ -22,12 +22,12 @@ def create
 #@projeto = Projeto.find(params[:projeto_id])
 #puts "AEW LOL"
 #puts @projeto.id
-@avaliacao  = Avaliacao.new(params[:avaliacao])
+#@avaliacao  = Avaliacao.new(params[:avaliacao])
 
-#@avaliacao = Avaliacao.new(:projeto => Projeto.find(params[:avaliacao][:projeto]), 
-#:profile => Profile.find(params[:avaliacao][:profile]),
-#:avaliado => Profile.find(params[:avaliacao][:avaliado]))
-#@projeto = Projeto.find(params[:avaliacao][:projeto])
+@avaliacao = Avaliacao.new(:projeto => Projeto.find(params[:avaliacao][:projeto]), 
+:profile => Profile.find(params[:avaliacao][:profile]),
+:avaliado => Profile.find(params[:avaliacao][:avaliado]))
+@projeto = Projeto.find(params[:avaliacao][:projeto])
 if @avaliacao.save
 flash[:success] = "Avaliacao Criada com Sucesso."
 redirect_to (:back)
