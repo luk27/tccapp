@@ -2,9 +2,9 @@
 
 <% form_for @avaliacao do |f| %>
  
- <%= f.hidden_field :projeto, :value => @projeto.id %>
- <%= f.hidden_field :profile, :value => current_profile.id %>
- <%= f.hidden_field :avaliado, :value => @avaliado.id %>
+ <%= f.hidden_field :projeto_id, :value => @projeto.id %>
+ <%= f.hidden_field :profile_id, :value => current_profile.id %>
+ <%= f.hidden_field :avaliado_id, :value => @avaliado.id %>
  
  
    <div class="field">
