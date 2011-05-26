@@ -17,7 +17,7 @@ has_many :postagems, :dependent => :destroy
 
 
 ###AVALIACOES
-has_many :avaliacaos,:foreign_key => "projeto_id"
+has_many :avaliacaos, :class_name => "Avaliacao", :foreign_key => "projeto_id"
 
 #########
 
