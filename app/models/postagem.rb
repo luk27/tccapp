@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class Postagem < ActiveRecord::Base
 
  belongs_to :profile

@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class Message < ActiveRecord::Base
 
   is_private_message :class_name => "Profile"

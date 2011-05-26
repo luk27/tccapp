@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class Profile < ActiveRecord::Base
 attr_accessor :password
 attr_accessible :nome, :email, :sexo, :sobrenome, :data_nascimento, :password, :password_confirmation
@@ -23,7 +24,7 @@ has_many :postagems, :dependent => :destroy
 
 #AVALIACOES
 has_many :avaliacaos, :dependent => :destroy, :foreign_key => "avaliado_id"
-has_many :avaliadores, :through => :avaliacaos, :source => :profile, :foreign_key => "profile_id"
+has_many :avaliadores, :through => :avaliacaos, :source => :profile, :foreign_key => "profile_id", :dependent => :destroy
 
 #####################
 

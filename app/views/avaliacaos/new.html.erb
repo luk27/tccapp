@@ -1,6 +1,7 @@
 <h1>Avaliar Membro</h1>
 
 <% form_for @avaliacao do |f| %>
+ <%= render 'shared/error_messages', :object => f.object %>
  
  <%= f.hidden_field :projeto_id, :value => @projeto.id %>
  <%= f.hidden_field :profile_id, :value => current_profile.id %>
@@ -9,46 +10,56 @@
  
    <div class="field">
 	<%= f.label :texto %><br />
+  Breve comentario sobre o envolvimento do membro no dado projeto.</br>
 	<%= f.text_field :texto %>
   </div>
   
      <div class="field">
 	<%= f.label :nota %><br />
+  Nota de 0 a 10.</br>
 	<%= f.text_field :nota %>
   </div>
-  
+ <strong> Os campos abaixo devem ser preenchidos com notas de 0 - 6.</strong>
+ </br></br>
      <div class="field">
 	<%= f.label :nivel_habilidade %><br />
+  Avaliar o membro quanto a seus niveis de habilidade apresentados durante o projeto.
 	<%= f.text_field :nivel_habilidade %>
   </div>
   
      <div class="field">
 	<%= f.label :comprometimento %><br />
+  Demonstra o quanto o membro avaliado se comprometeu ao longo do desenvolvimento do trabalho.
 	<%= f.text_field :comprometimento %>
   </div>
   
      <div class="field">
 	<%= f.label :tempo_demora %><br />
+  Avalia o membro no quesito de demora a responder mensagens e cumprir prazos. Quanto maior a nota, mais rapido.</br>
 	<%= f.text_field :tempo_demora %>
   </div>
   
      <div class="field">
 	<%= f.label :criatividade %><br />
+  Capacidade de superar os problemas, inovar, fazer mais do que o esperado, criar solucoes novas.
 	<%= f.text_field :criatividade%>
   </div>
   
      <div class="field">
 	<%= f.label :organicazao %><br />
+  Avalia o membro da equipe quanto a seu nivel de organizacao.</br>
 	<%= f.text_field :organicazao %>
   </div>
   
      <div class="field">
 	<%= f.label :comunicacao%><br />
+  Avalia o usuario na sua capacidade de se comunicar com os membros da equipe, seja por mensagens, in loco ou email.</br>
 	<%= f.text_field :comunicacao %>
   </div>
   
      <div class="field">
 	<%= f.label :trabalho_grupo %><br />
+  Capacidade do membro da equipe de trabalhar em grupo com seus colegas.
 	<%= f.text_field :trabalho_grupo %>
   </div>
   

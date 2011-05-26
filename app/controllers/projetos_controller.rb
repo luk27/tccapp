@@ -24,12 +24,9 @@ def create
   end
 
   def show
-    #@postagem = Postagem.new ## COISA NOVA DA POSTAGEM
 	@projeto = Projeto.find(params[:id])
 	@title = @projeto.nome
 	@profile = Profile.find(@projeto.profile_id)
-	#FUNCIONA ESSE EM#
-	#FUNFANDO MEU @pedido_projeto = @projeto.equipes.pedido.where(:projeto_id => @projeto.id)
 	@pedido_projeto = @profile.participacao_equipes.find_all_by_status(false,:include => [:projeto, :membro])
 	@pedido_aceito = @profile.participacao_equipes.find_all_by_status(true,:include => [:projeto, :membro])
 	@postagems = @projeto.postagems.paginate(:page => params[:page], :per_page => Postagem.per_page)

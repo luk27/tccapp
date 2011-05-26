@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class Curso < ActiveRecord::Base
 
 belongs_to :profile
