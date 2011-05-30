@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110530013745) do
+ActiveRecord::Schema.define(:version => 20110530153128) do
 
   create_table "avaliacaos", :force => true do |t|
     t.integer  "projeto_id"
@@ -55,6 +55,16 @@ ActiveRecord::Schema.define(:version => 20110530013745) do
 
   add_index "equipes", ["membro_id"], :name => "index_equipes_on_membro_id"
   add_index "equipes", ["projeto_id"], :name => "index_equipes_on_projeto_id"
+
+  create_table "habilidades", :force => true do |t|
+    t.integer  "profile_id"
+    t.string   "nome"
+    t.string   "descricao"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "habilidades", ["profile_id"], :name => "index_habilidades_on_profile_id"
 
   create_table "messages", :force => true do |t|
     t.integer  "sender_id"
