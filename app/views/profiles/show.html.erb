@@ -1,5 +1,4 @@
-# encoding: UTF-8
-<%= csrf_meta_tag %>
+﻿<%= csrf_meta_tag %>
 <%= javascript_include_tag :defaults %>
 <h1>
 <td class="profile"><font size = 5>
@@ -99,7 +98,7 @@ Participa dos Projetos:
 
 <h3>
 
-Avaliacoes:
+Avaliações:
 </br>
 </br>
 <table class="cursos" summary="Cursos">
@@ -111,13 +110,13 @@ Avaliacoes:
 <% @avaliacaos.each do |av| %>
 
 <strong>Avaliador:</strong> <%= link_to av.profile.nome+" "+av.profile.sobrenome, av.profile %> </br>
-<strong>Participacao no Projeto:</strong> <%= link_to av.projeto.nome, av.projeto %></br>
+<strong>Participação no Projeto:</strong> <%= link_to av.projeto.nome, av.projeto %></br>
 <strong>Nota:</strong> <%= av.nota %> </br>
-<strong>Comentarios:</strong> <%= av.texto %> </br>
+<strong>Comentários:</strong> <%= av.texto %> </br>
 <hr>
 <table border="1">
 <tr>
-<th>Nivel de Habilidade</th>
+<th>Nível de Habilidade</th>
 <th>Comprometimento</th>
 <th>Tempo de Demora</th>
 </tr>
@@ -130,13 +129,13 @@ Avaliacoes:
 <table border="2">
 <tr>
 <th>Criatividade</th>
-<th>Organizacao</th>
+<th>Organização</th>
 <th>Trabalho em Grupo</th>
-<th>Comunicacao</th>
+<th>Comunicação</th>
 </tr>
 <tr>
 <td><%= av.criatividade %></td>
-<td><%= av.organicazao %></td>
+<td><%= av.organizacao %></td>
 <td><%= av.trabalho_grupo %></td>
 <td><%= av.comunicacao %></td>
 </tr>

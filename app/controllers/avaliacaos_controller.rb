@@ -1,4 +1,4 @@
-class AvaliacaosController < ApplicationController
+﻿class AvaliacaosController < ApplicationController
 
 
 
@@ -16,7 +16,7 @@ def create
 @avaliacao  = Avaliacao.new(params[:avaliacao])
 @projeto = Projeto.find(params[:avaliacao][:projeto_id])
 if @avaliacao.save
-flash[:success] = "Avaliacao Criada com Sucesso."
+flash[:success] = "Avaliação Criada com Sucesso."
 redirect_to @projeto
 else
 redirect_to (:back)

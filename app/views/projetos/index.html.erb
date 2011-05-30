@@ -17,6 +17,10 @@
    Nome: <%= link_to projeto.nome, projeto %> <br>
    Descricao: <%= projeto.descricao %><br>
    Motivacao: <%= projeto.motivacao %><br>
+   <% unless projeto.palavrachave1 == nil && projeto.palavrachave2 == nil && projeto.palavrachave3 == nil %>
+   Palavras-chave: <%= projeto.palavrachave1 %> <%= projeto.palavrachave2 %> <%= projeto.palavrachave3 %> </br>
+    <% end %>
+   
    Idealizador: <%= link_to projeto.profile.nome, projeto.profile%>
    <hr size="10" noshade>
      <div>

@@ -1,4 +1,4 @@
-<h1>Avaliar Membro</h1>
+﻿<h1>Avaliar Membro</h1>
 
 <% form_for @avaliacao do |f| %>
  <%= render 'shared/error_messages', :object => f.object %>
@@ -10,20 +10,20 @@
  
    <div class="field">
 	<%= f.label :texto %><br />
-  Breve comentario sobre o envolvimento do membro no dado projeto.</br>
+  Breve comentário sobre o envolvimento do membro no dado projeto.</br>
 	<%= f.text_field :texto %>
   </div>
   
      <div class="field">
 	<%= f.label :nota %><br />
-  Nota de 0 a 10.</br>
+  Nota de 0 até 10.</br>
 	<%= f.text_field :nota %>
   </div>
- <strong> Os campos abaixo devem ser preenchidos com notas de 0 - 6.</strong>
+ <strong> Os campos abaixo devem ser preenchidos com notas de 0 até 6.</strong>
  </br></br>
      <div class="field">
 	<%= f.label :nivel_habilidade %><br />
-  Avaliar o membro quanto a seus niveis de habilidade apresentados durante o projeto.
+  Avaliar o membro quanto a seus níveis de habilidade apresentados durante o projeto.
 	<%= f.text_field :nivel_habilidade %>
   </div>
   
@@ -35,25 +35,25 @@
   
      <div class="field">
 	<%= f.label :tempo_demora %><br />
-  Avalia o membro no quesito de demora a responder mensagens e cumprir prazos. Quanto maior a nota, mais rapido.</br>
+  Avalia o membro no quesito de demora a responder mensagens e cumprir prazos. Quanto maior a nota, mais rápido.</br>
 	<%= f.text_field :tempo_demora %>
   </div>
   
      <div class="field">
 	<%= f.label :criatividade %><br />
-  Capacidade de superar os problemas, inovar, fazer mais do que o esperado, criar solucoes novas.
+  Capacidade de superar os problemas, inovar, fazer mais do que o esperado, criar soluções novas.
 	<%= f.text_field :criatividade%>
   </div>
   
      <div class="field">
-	<%= f.label :organicazao %><br />
-  Avalia o membro da equipe quanto a seu nivel de organizacao.</br>
+	<%= f.label :organizacao %><br />
+  Avalia o membro da equipe quanto a seu nível de organização.</br>
 	<%= f.text_field :organicazao %>
   </div>
   
      <div class="field">
 	<%= f.label :comunicacao%><br />
-  Avalia o usuario na sua capacidade de se comunicar com os membros da equipe, seja por mensagens, in loco ou email.</br>
+  Avalia o usuário na sua capacidade de se comunicar com os membros da equipe, seja por mensagens, in loco ou email.</br>
 	<%= f.text_field :comunicacao %>
   </div>
   
