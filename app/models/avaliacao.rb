@@ -13,7 +13,7 @@ validates :nivel_habilidade, :numericality => { :greater_than_or_equal_to => 0, 
 validates :comprometimento, :numericality => { :greater_than_or_equal_to => 0, :less_than_or_equal_to => 6 }
 validates :tempo_demora, :numericality => { :greater_than_or_equal_to => 0, :less_than_or_equal_to => 6 }
 validates :criatividade, :numericality => { :greater_than_or_equal_to => 0, :less_than_or_equal_to => 6 }
-validates :organicazao, :numericality => { :greater_than_or_equal_to => 0, :less_than_or_equal_to => 6 }
+validates :organizacao, :numericality => { :greater_than_or_equal_to => 0, :less_than_or_equal_to => 6 }
 validates :comunicacao, :numericality => { :greater_than_or_equal_to => 0, :less_than_or_equal_to => 6 }
 validates :trabalho_grupo, :numericality => { :greater_than_or_equal_to => 0, :less_than_or_equal_to => 6 }
 
