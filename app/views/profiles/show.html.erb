@@ -17,8 +17,9 @@
 <%= link_to "Enviar Mensagem!", new_profile_message_path(current_profile, :mens=> @profile) %> 
 </font size></td>
 <% end %>
-
+</h2>
 <HR>
+<h3>
 <span>Cursos <% if current_profile?(@profile) %></span> <span><font size = 3><%= link_to "Adicionar Curso", new_profile_curso_path(current_profile) %></font size></span></span>
 <% else %>
 <% end %>
@@ -51,7 +52,42 @@ Ingresso em: <span class="ingresso"><%=h curso.ano_ingresso %> - Encerra em: <sp
 
 <% end %>
 <HR>
-</h2>
+</h3>
+
+<span><font size = 4>Habilidades</font size = 4>  <% if current_profile?(@profile) %></span> <span><font size = 3><%= link_to "Adicionar Habilidade", new_profile_habilidade_path(current_profile) %></font size></span></span>
+<% else %>
+<% end %>
+
+
+
+<% for habilidade in @profile.habilidades %>
+<table class="cursos" summary="Cursos">
+<tr>
+
+
+<td class="curso"><font size = 3>
+<span class="nome">Habilidade: <%=h habilidade.nome %> <br>
+Descrição: <span class="ingresso"><%=h habilidade.descricao %> <br>
+  </span>
+  </td>
+
+
+<% if current_profile?(@profile) %>
+ <td class="delete"><font size = 4>
+ <br>
+<p align="Right"><%= link_to "Delete", habilidade_path(habilidade), :method => :delete %></p>
+</td>
+
+<% else %>
+<% end %>
+</tr>
+</table>
+
+
+<% end %>
+<HR>
+</h3>
+
 
 <h3>
 

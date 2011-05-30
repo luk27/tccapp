@@ -1,27 +1,19 @@
-<h1>Adicionar Curso</h1>
+<h1>Adicionar Habilidade</h1>
 
-<%= form_for ([@profile,@curso]) do |f| %>
+<%= form_for ([@profile,@habilidade]) do |f| %>
 
   <div class="field">
     <%= f.label :nome %><br />
     <%= f.text_field :nome %>
   </div>
   <div class="field">
-    <%= f.label :universidade %><br />
-    <%= f.text_field :universidade %>
-  </div>
-  <div class="field">
-    <%= f.label :ano_ingresso %><br />
-    <%= f.text_field :ano_ingresso %>
-  </div>
-  <div class="field">
-    <%= f.label :ano_termino %><br />
-    <%= f.text_field :ano_termino %>
+    <%= f.label :descricao %><br />
+    <%= f.text_field :descricao %>
   </div>
 
 
 
   <div class="actions">
-    <%= f.submit "Cadastrar" %>
+    <%= f.submit "Adicionar" %>
   </div>
 <% end %>

@@ -5,6 +5,7 @@ attr_accessible :nome, :email, :sexo, :sobrenome, :data_nascimento, :password, :
 
 
 has_many :cursos, :dependent => :destroy
+has_many :habilidades, :dependent => :destroy
 accepts_nested_attributes_for :cursos, :allow_destroy => true
 
 

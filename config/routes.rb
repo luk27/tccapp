@@ -10,7 +10,13 @@ Tccapp::Application.routes.draw do
                end
              end
            end
+    
+    resources :profiles do
+            resources :habilidades, :only => [:new, :create]
+            end
+           
  resources :cursos, :only => :destroy
+ resources :habilidades, :only => :destroy
 #resources :profiles do
 #resources :cursos, :only => [:new, :create, :destroy]
 #end
