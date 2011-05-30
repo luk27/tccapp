@@ -19,8 +19,10 @@ def get_profile
 end
 
 def destroy
-  @profile= Profile.find(params[:id_profile])
-  @curso = Curso.find(params[:id_curso])
+  #@profile= Profile.find(current_profile)
+  #@curso = Curso.find(params[:id_curso])
+  #@curso = Curso.find(params[:curso])
+  @curso = Curso.find(params[:id])
   @curso.destroy
   redirect_to current_profile
 end
@@ -59,7 +61,8 @@ end
 #NVO
 
 def correct_profile_d
-      @profile = Profile.find(params[:id_profile])
+      #@profile = Profile.find(params[:id_profile])
+      @profile = Profile.find(current_profile)
       redirect_to current_profile unless current_profile?(@profile)
     end
 

@@ -40,7 +40,7 @@ Ingresso em: <span class="ingresso"><%=h curso.ano_ingresso %> - Encerra em: <sp
 <% if current_profile?(@profile) %>
  <td class="delete"><font size = 4>
  <br>
-<p align="Right"><%= link_to "Delete", profile_curso_path(current_profile, curso), :method => :delete %></p>
+<p align="Right"><%= link_to "Delete", curso_path(curso), :method => :delete %></p>
 </td>
 
 <% else %>

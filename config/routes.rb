@@ -2,7 +2,7 @@ Tccapp::Application.routes.draw do
 
 
   resources :profiles do
-  resources :cursos, :only => [:new, :create, :destroy]
+  resources :cursos, :only => [:new, :create]
   #resources :projetos, :only => [:new, :create, :destroy]
              resources :messages do
                collection do
@@ -10,7 +10,7 @@ Tccapp::Application.routes.draw do
                end
              end
            end
-
+ resources :cursos, :only => :destroy
 #resources :profiles do
 #resources :cursos, :only => [:new, :create, :destroy]
 #end
@@ -30,7 +30,7 @@ resources :sessions, :only => [:new, :create, :destroy]
   match '/entrar', :to => 'sessions#new'
 
   
-  match '/profiles/:id_profile/cursos/:id_curso', :to => 'cursos#destroy'
+  #match '/profiles/:id_profile/cursos/:id_curso', :to => 'cursos#destroy'
   #match '/projetos/:id_projeto/edit', :to => 'projetos#edit'
 
   match '/sair', :to => 'sessions#destroy'
