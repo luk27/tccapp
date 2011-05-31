@@ -14,7 +14,7 @@ Descrição:<font size = 4> <%= @projeto.descricao %><br></font size = 4>
 Motivação: <font size = 4><%= @projeto.motivacao%><br></font size = 4>
 Site: <font size = 4><a href="http://<%= @projeto.site %>"><%= @projeto.site %></a><br></font size = 4>
   <% unless @projeto.palavrachave1 == nil && @projeto.palavrachave2 == nil && @projeto.palavrachave3 == nil %>
-   Palavras-chave: <%= @projeto.palavrachave1 %> <%= @projeto.palavrachave2 %> <%= @projeto.palavrachave3 %> </br>
+   Palavras-chave:  <font size = 4><%= @projeto.palavrachave1 %> <%= @projeto.palavrachave2 %> <%= @projeto.palavrachave3 %> </font size = 4> </br>
     <% end %>
 Completo: <font size = 4><%= @projeto.completo %>%</br></font size = 4>
 Dono: <font size = 4><%= link_to (@projeto.profile.nome) +" "+ (@projeto.profile.sobrenome), @projeto.profile%></font size =4>
