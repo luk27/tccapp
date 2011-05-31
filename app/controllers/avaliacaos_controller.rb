@@ -1,8 +1,5 @@
 ﻿class AvaliacaosController < ApplicationController
 
-
-
-
 def new
 @profile = Profile.find(params[:profile])
 @avaliado = Profile.find(params[:avaliado])
@@ -22,19 +19,6 @@ else
 redirect_to (:back)
 end
 end
-
-
-
-def index
-
-end
-
-def show
-
-end
-
-
-
 
 
 end
