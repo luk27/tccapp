@@ -1,0 +1,33 @@
+<h1>Editar Projeto</h1>
+
+<%= form_for(@projeto) do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  
+  <div class="field">
+	<%= f.label :nome %><br />
+	<%= f.text_field :nome %>
+  </div>
+  <div class="field">
+	<%= f.label :descricao %><br />
+	<%= f.text_field :descricao %>
+  </div>
+
+  <div class="field">
+	<%= f.label :motivacao %><br />
+	<%= f.text_field :motivacao %>
+  </div>
+  
+    <div class="field">
+	<%= f.label :site %><br />
+	<%= f.text_field :site%>
+  </div>
+  
+    <div class="field">
+	<%= f.label :completo %><br />
+	<%= f.text_field :completo %>
+  </div>
+  
+    <div class="actions">
+	<%= f.submit "Editar" %>
+  </div>
+<% end %>

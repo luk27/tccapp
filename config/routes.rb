@@ -30,6 +30,7 @@ resources :avaliacaos
 
 resources :postagems
  
+resources :reportings
  
 resources :sessions, :only => [:new, :create, :destroy]
 

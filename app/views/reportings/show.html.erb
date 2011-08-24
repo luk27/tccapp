@@ -1,0 +1,98 @@
+<%= csrf_meta_tag %>
+<%= javascript_include_tag :defaults %>
+<center><h1><%= @projeto.nome %></h1></center>
+<table class="projeto1" summary="Info do Projeto">
+<h1>
+<td class="projeto2"><font size = 5>
+<% unless @projeto.profile == current_profile  ||  current_profile.projetos_aprovados.exists?(@projeto) || current_profile.projetos_aplicados.exists?(@projeto) %>
+<% form_for(:equipe, :url => equipes_path(:membro_id => current_profile.id, :projeto_id => @projeto.id)) do |f| %>
+<%= submit_tag "Entrar no Projeto!" %>
+<% end %>
+<% end %>
+
+Descrição:<font size = 4> <%= @projeto.descricao %><br></font size = 4>
+Motivação: <font size = 4><%= @projeto.motivacao%><br></font size = 4>
+Site: <font size = 4><a href="http://<%= @projeto.site %>"><%= @projeto.site %></a><br></font size = 4>
+  <% unless @projeto.palavrachave1 == nil && @projeto.palavrachave2 == nil && @projeto.palavrachave3 == nil %>
+   Palavras-chave:  <font size = 4><%= @projeto.palavrachave1 %> <%= @projeto.palavrachave2 %> <%= @projeto.palavrachave3 %> </font size = 4> </br>
+    <% end %>
+Completo: <font size = 4><%= @projeto.completo %>%</br></font size = 4>
+Dono: <font size = 4><%= link_to (@projeto.profile.nome) +" "+ (@projeto.profile.sobrenome), @projeto.profile%></font size =4>
+<% if @projeto.profile != current_profile  &&  current_profile.projetos_aprovados.exists?(@projeto) && @projeto.completo == 100 %>
+<font size = 3> - <%= link_to "Avaliar!", new_avaliacao_path(:projeto_id => @projeto.id, :profile => current_profile.id,
+  :avaliado => @projeto.profile.id) %> 
+ </font size = 3> <% end %>
+
+<% if profile_projeto?(current_profile) %>
+<font size = 4>
+ - <%= link_to "Editar Projeto", edit_projeto_path(@projeto) %> |
+<%= link_to "Deletar Projeto", projeto_path(@projeto), :confirm => "Tem certeza que quer deletar seu projeto?", :method => :delete %>
+</font size = 4>
+<% else %>
+<% end %>
+ </font size>
+ 
+ <HR>
+ 
+ 
+<% if profile_projeto?(current_profile)%>
+<font size = 4>
+Novos membros querendo entrar no projeto:
+<% @pedido_projeto.each do |agm| %>
+<% if agm.projeto.id == @projeto.id%>
+  <p> 
+	  <%= link_to agm.membro.nome, agm.membro %> - 
+    <%=link_to("Aceitar", equipe_path(agm, "equipe[status]" => true), :method => :put, :confirm => "Tem certeza?")%> - 
+    <%= link_to "Rejeitar", equipe_path(agm), :confirm => "Tem certeza?", :method => :delete %>
+  </p>
+<%end %>
+<%end %>
+</font size = 4>
+<HR>
+<%end %>
+<% if @projeto.profile == current_profile  ||  current_profile.projetos_aprovados.exists?(@projeto) %>
+Deixar Mensagem:
+ <% form_for(Postagem.new, :url => postagems_path(:profile_id => current_profile.id, :projeto_id => @projeto.id)) do |f| %>
+<%= render 'shared/error_messages', :object => f.object %>
+<%= f.text_area :conteudo, :rows=>5 , :cols=>49, :wrap => "hard" %> 
+<%= f.submit "Enviar" %></br> </br>
+<HR>
+    <%end %>
+    <%end %>
+    <% if @projeto.profile == current_profile  ||  current_profile.projetos_aprovados.exists?(@projeto) %>
+Mensagens Recentes:
+
+       <% unless @postagems.empty? %>
+        <table class="posts" summary="Postagems do Projeto">
+        <% @postagems.each do |postagem| %>
+          <tr>
+  <td class="posts">
+  <span class="content"><%= simple_format(postagem.conteudo) %></span>
+    <span class="timestamp">
+    <%= gravatar_projeto postagem.profile %> <%= link_to postagem.profile.nome, postagem.profile %>  <%= time_ago_in_words(postagem.created_at) %> ago.<% if current_profile == postagem.profile || current_profile == @projeto.profile %> <%= link_to "Deletar Mensagem", postagem, :method => :delete,
+                                     :confirm => "Quer realmente deletar a mensagem?"%>  <% end %>
+    </span>
+  </td>
+</tr>
+  <% end %>
+        </table>
+        <%= will_paginate @postagems%>
+         <%end %>
+          <%end %>
+</td>
+</h1>
+<td class="sidebar round">
+  <strong>Membros do Projeto: </strong>
+  <% @pedido_aceito.each do |agm| %>
+  <% if agm.projeto.id == @projeto.id%>
+  <%= gravatar_projeto agm.membro %> <%= link_to agm.membro.nome, agm.membro %></br>
+  <% if @projeto.profile == current_profile && @projeto.completo == 100 %>
+  <%= link_to "Avaliar!", new_avaliacao_path(:projeto_id => @projeto.id, :profile => current_profile.id,
+  :avaliado => agm.membro.id) %> </br>
+  <%end %>
+<%end %>
+<%end %>
+    </td>
+
+
+</table>

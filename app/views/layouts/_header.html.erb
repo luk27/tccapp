@@ -13,7 +13,6 @@
       <li><%= link_to "Projetos", projetos_path %></li> 
       <li><%= link_to "Membros", profiles_path %></li>
       <li><%= link_to "Profile", current_profile%></li>
-      
 <% end %>
        <% if entrar? %>
       <li><%= link_to "Sair", sair_path, :method => :delete %></li>
@@ -26,3 +25,14 @@
     </ul>
   </nav>
 </header>
+
+<header2>
+
+<nav class="round">
+<ul>
+
+ <li><%= link_to "Painel de Controle", reportings_path%></li>
+ 
+  </ul>
+  </nav>
+</header2>

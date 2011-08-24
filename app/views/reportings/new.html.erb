@@ -1,0 +1,47 @@
+<h1>Criar Projeto</h1>
+
+
+<%= form_for @projeto do |f| %>
+<%= render 'shared/error_messages', :object => f.object %>
+
+  <div class="field">
+	<%= f.label :nome %><br />
+	<%= f.text_field :nome %>
+  </div>
+  <div class="field">
+	<%= f.label :descricao %><br />
+	<%= f.text_field :descricao%>
+  </div>
+  <div class="field">
+	<%= f.label :motivacao %><br />
+	<%= f.text_field :motivacao%>
+  </div>
+  <div class="field">
+	<%= f.label :site%><br />
+	<%= f.text_field :site %>
+  </div>
+  <div class="field"> 
+  <%= f.label :palavrachave1 %><br />
+  <%= f.text_field :palavrachave1 %>
+  </div>
+  <div class="field">
+  <%= f.label :palavrachave2%><br />
+  <%= f.text_field :palavrachave2 %>
+  </div>
+  <div class="field">
+  <%= f.label :palavrachave3%><br />
+  <%= f.text_field :palavrachave3 %>
+  </div>
+    
+    <div class="field">
+	<%= f.label :completo%><br />
+  Inserir em % o quanto o projeto se encontra completo.<br>
+	<%= f.text_field :completo %>
+  </div>
+
+
+
+  <div class="actions">
+	<%= f.submit "Criar" %>
+  </div>
+<% end %>

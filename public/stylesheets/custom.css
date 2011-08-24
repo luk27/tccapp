@@ -15,6 +15,15 @@ header img {
   background: #B1BCF0;
 }
 
+header2 {
+  padding-top: 18px;
+}
+
+header2 img {
+  padding: 1em;
+  background: #B1BCF0;
+}
+
 section {
   margin-top: 1em;
   font-size: 120%;

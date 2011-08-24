@@ -31,5 +31,21 @@ validates :descricao, :presence => true
 
 validates :completo, :numericality => { :greater_than_or_equal_to => 0, :less_than_or_equal_to => 100 } 
 
+  def self.projeto_com_postagems
+    query = "SELECT p.nome, p.id, post.projeto_id " <<
+            "FROM projetos p, postagems post " <<
+            "WHERE p.id = post.projeto_id;"
 
+    projeto = Projeto.find_by_sql(query)
+  end
+  
+  def self.projeto_com_membros
+    query = "SELECT p.nome, p.id, e.projeto_id " <<
+            "FROM projetos p, equipes e " <<
+            "WHERE p.id = e.projeto_id;"
+
+    projeto = Projeto.find_by_sql(query)
+  end
+  
+  
 end

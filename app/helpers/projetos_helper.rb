@@ -9,6 +9,6 @@ def profile_projeto?(profile)
 											:gravatar => options)
   end
 	
-	
+
 	
 end
