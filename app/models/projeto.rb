@@ -34,7 +34,8 @@ validates :completo, :numericality => { :greater_than_or_equal_to => 0, :less_th
   def self.projeto_com_postagems
     query = "SELECT p.nome, p.id, post.projeto_id " <<
             "FROM projetos p, postagems post " <<
-            "WHERE p.id = post.projeto_id;"
+            "WHERE p.id = post.projeto_id " <<
+            "GROUP BY p.nome, p.id, post.projeto_id;"
 
     projeto = Projeto.find_by_sql(query)
   end
@@ -42,10 +43,28 @@ validates :completo, :numericality => { :greater_than_or_equal_to => 0, :less_th
   def self.projeto_com_membros
     query = "SELECT p.nome, p.id, e.projeto_id " <<
             "FROM projetos p, equipes e " <<
-            "WHERE p.id = e.projeto_id;"
+            "WHERE p.id = e.projeto_id AND status is true " <<
+            "GROUP BY p.nome, p.id, e.projeto_id;"
 
     projeto = Projeto.find_by_sql(query)
   end
   
+  def self.postagems_por_projeto
+    query = "SELECT p.nome, p.id, COUNT(post.projeto_id) as total " <<
+            "FROM projetos p, postagems post " <<
+            "WHERE p.id = post.projeto_id " <<
+            "GROUP BY p.nome, p.id;"
+            
+    projeto = Projeto.find_by_sql(query)
+  end
+  
+  def self.membros_por_projeto
+    query = "SELECT p.nome, p.id, COUNT(e.projeto_id) as total " <<
+            "FROM projetos p, equipes e " <<
+            "WHERE p.id = e.projeto_id AND status is true " <<
+            "GROUP BY p.nome, p.id;"
+
+    projeto = Projeto.find_by_sql(query)
+  end
   
 end

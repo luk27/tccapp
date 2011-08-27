@@ -6,7 +6,7 @@
   $(function() {
     new Highcharts.Chart({
       chart: {
-        renderTo: "orders_chart",
+        renderTo: "projetos_chart",
         defaultSeriesType: "column"
       },
       title: {
@@ -29,6 +29,7 @@
       credits: {
          enabled: false
       },
+      
       series: [{
       name: 'Indicadores de Projetos',
       data: [<%= Projeto.count %>,
@@ -46,4 +47,94 @@
 
 
 
-<div id="orders_chart" style="width:560px; height:300px;"></div>
+<div id="projetos_chart" style="width:560px; height:300px;"></div>
+
+<script type="text/javascript" charset="utf-8">
+var chart;
+  $(function() {
+    new Highcharts.Chart({
+	      chart: {
+	         renderTo: "postagens_chart",
+	         defaultSeriesType: 'pie'
+      },
+	      title: {
+	         text: 'Postagens por Projeto'
+	      },
+        tooltip: {
+          formatter: function() {
+           return '<b>'+ this.point.name +'</b>: '+ this.y +' Projeto(s), '+ Math.round(this.percentage) + '%';
+        }
+      },
+        credits: {
+         enabled: false
+      },
+            plotOptions: {
+         pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+               enabled: false
+            },
+            showInLegend: true
+         }
+      },
+	      series: [{
+         type: 'pie',
+         name: 'Browser share',
+         data: [
+            ['Mais de 10 Postagens',  <%= @projetos_mensagens_10 %>],
+            ['Entre 1 e 5 Postagens', <%= @projetos_mensagens_15 %>],
+            ['0 Postagens',   <%= Projeto.count - @projetos_mensagens.size %>]
+         ]
+      }]
+	   });
+	});
+</script>
+
+
+<div id="postagens_chart" style="width:650px; height:400px;"></div>
+
+<script type="text/javascript" charset="utf-8">
+var chart;
+  $(function() {
+    new Highcharts.Chart({
+        chart: {
+           renderTo: "membros_chart",
+           defaultSeriesType: 'pie'
+      },
+        title: {
+           text: 'Membros por Projeto'
+        },
+        tooltip: {
+          formatter: function() {
+           return '<b>'+ this.point.name +'</b>: '+ this.y +' Projeto(s), '+ Math.round(this.percentage) + '%';
+        }
+      },
+        credits: {
+         enabled: false
+      },
+            plotOptions: {
+         pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+               enabled: false
+            },
+            showInLegend: true
+         }
+      },
+        series: [{
+         type: 'pie',
+         name: 'Browser share',
+         data: [
+            ['Mais de 10 Membros',  <%= @projetos_membros_10 %>],
+            ['Entre 1 e 5 Membros', <%= @projetos_membros_15 %>],
+            ['Sem Membros, apenas o dono',   <%= Projeto.count - @projetos_membros.size %>]
+         ]
+      }]
+     });
+  });
+</script>
+
+
+<div id="membros_chart" style="width:650px; height:400px;"></div>
