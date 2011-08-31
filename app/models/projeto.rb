@@ -67,4 +67,13 @@ validates :completo, :numericality => { :greater_than_or_equal_to => 0, :less_th
     projeto = Projeto.find_by_sql(query)
   end
   
+    #def self.projeto_sem_membros
+    #query = "SELECT p.nome, p.id, e.projeto_id " <<
+    #        "FROM projetos p, equipes e " <<
+    #        "WHERE p.id != e.projeto_id " <<
+    #        "GROUP BY p.nome, p.id, e.projeto_id;"
+
+    #projeto = Projeto.find_by_sql(query)
+  #end
+  
 end

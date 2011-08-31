@@ -30,8 +30,14 @@ resources :avaliacaos
 
 resources :postagems
  
-resources :reportings
- 
+resources :reportings do
+  collection do
+    get "indicadores_projeto"
+    get "membros_projeto"
+    get "postagens_projeto"
+  end
+end
+
 resources :sessions, :only => [:new, :create, :destroy]
 
   match '/entrar', :to => 'sessions#new'
