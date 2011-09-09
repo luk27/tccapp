@@ -1,13 +1,22 @@
 <%= csrf_meta_tag %>
 <h1>Todos os Projetos</h1>
+<%= form_tag projetos_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Procurar", :nome => nil %>
+  </p>
+<% end %> 
 <table>
 <%= will_paginate %>
 <div>
-<h2><%= link_to "Criar Projeto!", new_projeto_path %></h2>
+<h2><%= link_to "Criar Projeto!", new_projeto_path %>
+
+</h2>
+</div>
 <ul class="projetos">
 
 
- 
+
 
 <td class="pro round">
 <font size = 4>

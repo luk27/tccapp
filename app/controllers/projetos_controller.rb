@@ -10,8 +10,12 @@ before_filter :profile_projeto, :only => [:edit]
 
  def index
 	@title = "Todos os Projetos"
-	@projetos = Projeto.paginate(:page => params[:page])
-  end
+	#@projetos = Projeto.paginate(:page => params[:page])
+	@search = Projeto.search do
+	fulltext params[:search]
+ 	 end
+  	@projetos = @search.results.paginate(:page => params[:page])
+ end
 
 def create
 	@projeto  = current_profile.dono_projetos.build(params[:projeto])

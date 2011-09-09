@@ -23,6 +23,14 @@ has_many :avaliacaos, :class_name => "Avaliacao", :foreign_key => "projeto_id", 
 #########
 
 
+
+    searchable do
+     text :nome, :descricao, :palavrachave1, :palavrachave2, :palavrachave3, :motivacao
+    end
+
+
+
+
 validates :nome, :presence => true,
 :length   => { :maximum => 25}
 
