@@ -8,6 +8,11 @@ class ReportingsController < ApplicationController
 	
 	end
 	
+	def envia_email(email, nome)
+		ProfileMailer.alerta_membros(email, nome).deliver
+		#redirect_to :back
+	end
+	
 	def membros_projeto
 		@projetos_membros = Projeto.membros_por_projeto
 		@projetos_membros_15 = 0

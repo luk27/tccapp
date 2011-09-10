@@ -30,15 +30,24 @@ resources :avaliacaos
 
 resources :postagems
  
-resources :reportings do
+resources :reportings, :except => [:show] do
   collection do
     get "indicadores_projeto"
     get "membros_projeto"
     get "postagens_projeto"
+    get "envia_email"
   end
 end
 
+#resources :profile_mailers do
+#  collection do
+#    get "alerta_membros"
+#  end
+#end
+
 resources :sessions, :only => [:new, :create, :destroy]
+
+  #match '/reportings/envia_email', :to => 'reportings#index'
 
   match '/entrar', :to => 'sessions#new'
 
