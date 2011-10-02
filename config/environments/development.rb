@@ -1,15 +1,30 @@
 Tccapp::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
-ActionMailer::Base.smtp_settings = {
-  :address              => "smtp.gmail.com",
-  :port                 => 587,
-        :domain         => 'localhost:3000',
-       :user_name      => 'tcc.app.usp@gmail.com',
-      :password       => 'hiholuk89'
-  :authentication       => "plain",
-  :enable_starttls_auto => true
-}
+  
+  # Configurações do Email
+  ActionMailer::Base.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :domain               => 'localhost:3000',
+    :user_name            => 'tcc.app.usp@gmail.com',
+    :password             => 'hiholuk89',
+    :authentication       => "plain",
+    :enable_starttls_auto => true
+  }
 
+#config.action_mailer.delivery_method = :smtp
+
+#config.action_mailer.smtp_settings = {
+#    :enable_starttls_auto => true,
+#    :address        => 'smtp.gmail.com',
+#    :port           => 587,
+#    :authentication => :plain,
+    #:user_name      => 'tcc.app.usp@gmail.com',
+    #:password       => 'hiholuk89',
+#    :user_name      => 'lukspn.27@gmail.com',
+#    :password       => 'hiholuk89',
+#    :domain         => 'localhost:3000'
+#  } 
   # In the development environment your application's code is reloaded on
   # every request.  This slows down response time but is perfect for development
   # since you don't have to restart the webserver when you make code changes.
@@ -33,5 +48,7 @@ ActionMailer::Base.smtp_settings = {
   config.action_dispatch.best_standards_support = :builtin
   
   config.action_mailer.default_url_options = {:host => 'localhost:3000' }
+  config.action_mailer.asset_host = "http://localhost:3000"
+
 end
 

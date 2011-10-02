@@ -8,10 +8,6 @@ class ReportingsController < ApplicationController
 	
 	end
 	
-	def envia_email(email, nome)
-		ProfileMailer.alerta_membros(email, nome).deliver
-		#redirect_to :back
-	end
 	
 	def membros_projeto
 		@projetos_membros = Projeto.membros_por_projeto
@@ -37,6 +33,20 @@ class ReportingsController < ApplicationController
 			end
 		end
 	end
+	
+	def envia_email
+		@nome = params[:nome]
+		@email = params[:email]
+		@metodo = params[:metodo]
+		puts "AUHUAHHUAHUAAHUA LOL OLOLOLOLOLOLOLOLOL #@metodo"
+		if (@metodo == "1")
+			ProfileMailer.alerta_membros(@email, @nome).deliver
+		end
+		if (@metodo == "2")
+			ProfileMailer.alerta_postagens(@email, @nome).deliver
+		end
+	end
+	
 	
 	def postagens_projeto
 		@projetos_mensagens = Projeto.postagems_por_projeto
