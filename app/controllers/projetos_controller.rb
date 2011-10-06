@@ -1,6 +1,6 @@
 class ProjetosController < ApplicationController
  #before_filter :authenticate, :only =>  [:create, :destroy]
- before_filter :authenticate, :only => [:index, :edit, :update, :new, :create] #NEW THING
+before_filter :authenticate, :only => [:index, :edit, :update, :new, :create] #NEW THING
 before_filter :correct_profile, :only => [:edit, :update, :new, :create, :delete, :destroy] #NEW THING
 before_filter :profile_projeto, :only => [:edit]
 
@@ -34,6 +34,9 @@ def create
 	@pedido_projeto = @profile.participacao_equipes.find_all_by_status(false,:include => [:projeto, :membro])
 	@pedido_aceito = @profile.participacao_equipes.find_all_by_status(true,:include => [:projeto, :membro])
 	@postagems = @projeto.postagems.paginate(:page => params[:page], :per_page => Postagem.per_page)
+	
+	@visita = VisitasProjeto.new(:projeto_id => @projeto.id)
+	@visita.save
 end
 
 def destroy

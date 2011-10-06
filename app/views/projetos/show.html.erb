@@ -17,7 +17,7 @@ Site: <font size = 4><a href="http://<%= @projeto.site %>"><%= @projeto.site %><
    Palavras-chave:  <font size = 4><%= @projeto.palavrachave1 %> <%= @projeto.palavrachave2 %> <%= @projeto.palavrachave3 %> </font size = 4> </br>
     <% end %>
 Completo: <font size = 4><%= @projeto.completo %>%</br></font size = 4>
-Dono: <font size = 4><%= link_to (@projeto.profile.nome) +" "+ (@projeto.profile.sobrenome), @projeto.profile%></font size =4>
+Dono: <font size = 4><%= link_to (@projeto.profile.nome) +" "+ (@projeto.profile.sobrenome), @projeto.profile%></font size =4></br>
 <% if @projeto.profile != current_profile  &&  current_profile.projetos_aprovados.exists?(@projeto) && @projeto.completo == 100 %>
 <font size = 3> - <%= link_to "Avaliar!", new_avaliacao_path(:projeto_id => @projeto.id, :profile => current_profile.id,
   :avaliado => @projeto.profile.id) %> 
@@ -25,8 +25,9 @@ Dono: <font size = 4><%= link_to (@projeto.profile.nome) +" "+ (@projeto.profile
 
 <% if profile_projeto?(current_profile) %>
 <font size = 4>
- - <%= link_to "Editar Projeto", edit_projeto_path(@projeto) %> |
-<%= link_to "Deletar Projeto", projeto_path(@projeto), :confirm => "Tem certeza que quer deletar seu projeto?", :method => :delete %>
+<%= link_to "Editar Projeto", edit_projeto_path(@projeto) %> |
+<%= link_to "Deletar Projeto", projeto_path(@projeto), :confirm => "Tem certeza que quer deletar seu projeto?", :method => :delete %> |
+<%= link_to "Visitas", projeto_visitas_projetos_path(@projeto) %>
 </font size = 4>
 <% else %>
 <% end %>

@@ -21,7 +21,10 @@ Tccapp::Application.routes.draw do
 #resources :cursos, :only => [:new, :create, :destroy]
 #end
 
-resources :projetos  ##TIRA O DO E O END QUALQUER COISA
+resources :projetos do
+  resources :visitas_projetos
+end 
+##TIRA O DO E O END QUALQUER COISA
 resources :equipes
 
 
@@ -36,6 +39,7 @@ resources :reportings, :except => [:show] do
     get "membros_projeto"
     get "postagens_projeto"
     get "envia_email"
+    get "visitas"
   end
 end
 

@@ -1,4 +1,5 @@
 class ReportingsController < ApplicationController
+skip_before_filter :add_visita
 
 	def index
 		
@@ -72,6 +73,41 @@ class ReportingsController < ApplicationController
 			end
 		end		
 				
+	end
+	
+	def visitas
+		
+		@visitas = Visita.all
+		
+		@visitas_atual = 0
+		@visitas.each do |v|
+			if (v.created_at.month == Date.today.month)
+			@visitas_atual += 1
+			end
+		end
+
+		@visitas_mes_ant = 0
+		@visitas.each do |v|
+			if (v.created_at.month == (Date.today.month - 1))
+			@visitas_mes_ant += 1
+			end
+		end
+
+		@visitas_mes_ant2 = 0
+		@visitas.each do |v|
+			if (v.created_at.month == (Date.today.month - 2))
+			@visitas_mes_ant2 += 1
+			end
+		end
+
+		@visitas_mes_ant3 = 0
+		@visitas.each do |v|
+			if (v.created_at.month == (Date.today.month - 3))
+			@visitas_mes_ant3 += 1
+			end
+		end		
+		
+		
 	end
 	
 end
