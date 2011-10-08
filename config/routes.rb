@@ -40,6 +40,7 @@ resources :reportings, :except => [:show] do
     get "postagens_projeto"
     get "envia_email"
     get "visitas"
+    get "indicadores_sistema"
   end
 end
 

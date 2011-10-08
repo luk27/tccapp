@@ -9,6 +9,16 @@ skip_before_filter :add_visita
 	
 	end
 	
+	def indicadores_sistema
+		@projetos = Projeto.all
+		
+		@mensagens = Message.all
+		
+		@profiles = Profile.all
+		
+		@avaliacoes = Avaliacao.all
+	end
+	
 	
 	def membros_projeto
 		@projetos_membros = Projeto.membros_por_projeto
