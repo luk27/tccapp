@@ -22,7 +22,12 @@ Tccapp::Application.routes.draw do
 #end
 
 resources :projetos do
-  resources :visitas_projetos
+  resources :visitas_projetos do
+     collection do
+       get 'classificacao'
+     end
+  end
+  #resources :classificador_projetos
 end 
 ##TIRA O DO E O END QUALQUER COISA
 resources :equipes
@@ -73,6 +78,8 @@ resources :sessions, :only => [:new, :create, :destroy]
   match '/profiles/:id_profile/messages', :to => 'messages#index'
 
   match '/profiles/:id_profile/messages/:id_message', :to => 'messages#show'
+  
+  match '/ranking', :to => 'profiles#ranking'
   
  # match '/equipes/:id_equipe/', :to => 'profile/:membro_id/', :action => 'profile#show'
   

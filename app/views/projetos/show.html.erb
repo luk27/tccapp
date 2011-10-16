@@ -27,7 +27,8 @@ Dono: <font size = 4><%= link_to (@projeto.profile.nome) +" "+ (@projeto.profile
 <font size = 4>
 <%= link_to "Editar Projeto", edit_projeto_path(@projeto) %> |
 <%= link_to "Deletar Projeto", projeto_path(@projeto), :confirm => "Tem certeza que quer deletar seu projeto?", :method => :delete %> |
-<%= link_to "Visitas", projeto_visitas_projetos_path(@projeto) %>
+<%= link_to "Visitas", projeto_visitas_projetos_path(@projeto) %> |
+<%= link_to "Classificação", classificacao_projeto_visitas_projetos_path(@projeto) %>
 </font size = 4>
 <% else %>
 <% end %>

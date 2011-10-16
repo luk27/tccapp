@@ -59,6 +59,7 @@ validates :completo, :numericality => { :greater_than_or_equal_to => 0, :less_th
     projeto = Projeto.find_by_sql(query)
   end
   
+  
   def self.postagems_por_projeto
     query = "SELECT p.nome, p.id, COUNT(post.projeto_id) as total " <<
             "FROM projetos p, postagems post " <<
@@ -76,6 +77,7 @@ validates :completo, :numericality => { :greater_than_or_equal_to => 0, :less_th
 
     projeto = Projeto.find_by_sql(query)
   end
+  
   
     #def self.projeto_sem_membros
     #query = "SELECT p.nome, p.id, e.projeto_id " <<

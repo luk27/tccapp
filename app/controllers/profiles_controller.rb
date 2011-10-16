@@ -10,9 +10,21 @@ class ProfilesController < ApplicationController
 
   def index
     @title = "Todos os Membros"
-    @profiles = Profile.paginate(:page => params[:page])
+    @search = Profile.search do
+        fulltext params[:search],
+    end
+    @profiles = @search.results#.paginate(:page => params[:page])#, :order => "nome")
+    #@profiles = Profile.paginate(:page => params[:page])
+    
     #@search = Profile.search(params[:search]) #paradinhas nova da busca
     #@profilesS = @search.all  #paradinhas nova da busca
+  end
+
+  def ranking
+    #@profiles = Profile.total_notas#.order("avaliacaos")
+    
+    #render 'index'
+    #@profiles = Profile.paginate(:page => params[:page])
   end
 
   def show

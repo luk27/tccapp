@@ -157,9 +157,15 @@ Avaliações:
 <th>Tempo de Demora</th>
 </tr>
 <tr>
-<td><%= av.nivel_habilidade %></td>
-<td><%= av.comprometimento %></td>
-<td><%= av.tempo_demora %></td>
+<td><% for i in 1..av.nivel_habilidade %>
+<%= image_tag("star.jpg") %>
+<% end %></td>
+<td><% for i in 1..av.comprometimento %>
+<%= image_tag("star.jpg") %>
+<% end %></td>
+<td><% for i in 1..av.tempo_demora %>
+<%= image_tag("star.jpg") %>
+<% end %></td>
 </tr>
 </table> 
 <table border="2">
@@ -170,10 +176,18 @@ Avaliações:
 <th>Comunicação</th>
 </tr>
 <tr>
-<td><%= av.criatividade %></td>
-<td><%= av.organizacao %></td>
-<td><%= av.trabalho_grupo %></td>
-<td><%= av.comunicacao %></td>
+<td><% for i in 1..av.criatividade %>
+<%= image_tag("star.jpg") %>
+<% end %></td>
+<td><% for i in 1..av.organizacao %>
+<%= image_tag("star.jpg") %>
+<% end %></td>
+<td><% for i in 1..av.trabalho_grupo %>
+<%= image_tag("star.jpg") %>
+<% end %></td>
+<td><% for i in 1..av.comunicacao %>
+<%= image_tag("star.jpg") %>
+<% end %></td>
 </tr>
 </table> 
 </font size = 3>

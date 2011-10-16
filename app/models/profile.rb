@@ -29,7 +29,27 @@ has_many :avaliadores, :through => :avaliacaos, :source => :profile, :foreign_ke
 
 #####################
 
-
+  searchable do
+    text :nome, :email
+    text :nome_habilidade do
+      habilidades.map(&:nome)
+    end
+    text :descricao_habilidade do
+      habilidades.map(&:descricao)
+    end
+    text :nome_cursos do
+      cursos.map(&:nome)
+    end
+    text :universidade do
+      cursos.map(&:universidade)
+    end
+    text :ano_ingresso do
+      cursos.map(&:ano_ingresso)
+    end
+    text :ano_termino do
+      cursos.map(&:ano_termino)
+    end
+  end
 
 ##ANTIGO##
 #has_many :projetos, :foreign_key => "profile_id" #talvez nao precise disso
@@ -70,6 +90,15 @@ Curso.where("profile_id = ?", id)
 #cursos
 end
 
+
+  def self.total_notas
+    query = "SELECT p.nome, p.email, p.sobrenome, SUM(a.nivel_habilidade) as total, a.avaliado_id " <<
+            "FROM profiles p, avaliacaos a " <<
+            "WHERE p.id = a.avaliado_id " <<
+            "GROUP BY p.nome, a.avaliado_id, p.email, p.sobrenome;"
+
+    profile = Profile.find_by_sql(query)
+  end
 
 #NOVO CODIGO
 

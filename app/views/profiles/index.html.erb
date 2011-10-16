@@ -1,7 +1,15 @@
 <h1>Todos os Usuários</h1>
+<%= form_tag profiles_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Procurar", :nome => nil, :email => nil, :nome_habilidade =>
+    nil, :descricao_habilidade => nil, :nome_cursos => nil, :universidade => nil,
+    :ano_ingresso => nil, :ano_termino => nil %>
+  </p>
+<% end %>
 
-
-<%= will_paginate %>
+<%#= link_to "Ranking", ranking_path %>
+<%= will_paginate @profiles %>
 
 <ul class="profiles">
   <% @profiles.each do |profile| %>
@@ -9,4 +17,4 @@
   <% end %>
 </ul>
 
-<%= will_paginate %>
+<%= will_paginate @profiles %>
