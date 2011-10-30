@@ -1,7 +1,7 @@
 
 <header>
 
-  <%= link_to logo, root_path %>
+  <%= link_to image_tag("/images/newlogo2.png", :class => 'round'), root_path %>
   <nav class="round">
     <ul>
     <% if entrar? %>
@@ -31,7 +31,9 @@
 <nav class="round">
 <ul>
 
+<% if current_profile != nil && current_profile.admin == true  %>
  <li><%= link_to "Painel de Controle", reportings_path%></li>
+<% end %>
  
   </ul>
   </nav>

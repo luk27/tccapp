@@ -2,17 +2,47 @@
   width: 710px;
 }
 
-body {
-  background: #cff;
+.home{
+   background-image: url(/images/fundo2.png);
 }
+
+.projfoto{
+   background-image: url(/images/projetos.png);
+}
+
+.profilefoto{
+   background-image: url(/images/profiles.png);
+}
+
+.membrosfoto{
+   background-image: url(/images/membros.png);
+}
+
+.avafoto{
+   background-image: url(/images/avaliacaos.png);
+}
+
+.painelfoto{
+   background-image: url(/images/painel.png);
+}
+
+body {
+  /*background: #cff;*/
+  background: #9999ff;
+  /*background-image: url(/images/fundo2.png);*/
+  background-position: center top;
+  background-attachment: scroll;
+  background-padding: 4px;
+}
+
 
 header {
   padding-top: 20px;
 }
 
 header img {
-  padding: 1em;
-  background: #B1BCF0;
+  padding: 0.1em;
+  background: #5E767E;
 }
 
 header2 {

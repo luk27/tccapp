@@ -5,7 +5,7 @@ before_filter :correct_profile_d, :only => [:destroy]
 #before_filter :authorized_profile, :only => :destroy
 before_filter :get_profile
 
-
+layout "profiles"
 
   def new
     @profile = Profile.find(params[:profile_id])

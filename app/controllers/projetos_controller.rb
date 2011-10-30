@@ -4,6 +4,9 @@ before_filter :authenticate, :only => [:index, :edit, :update, :new, :create] #N
 before_filter :correct_profile, :only => [:edit, :update, :new, :create, :delete, :destroy] #NEW THING
 before_filter :profile_projeto, :only => [:edit]
 
+ layout "projetos"
+ 
+ 
  def new
 	@projeto = Projeto.new
   end

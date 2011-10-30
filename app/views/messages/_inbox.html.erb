@@ -24,7 +24,7 @@
 					<% end %>
 				</td>
 				<td><%= link_to h(message.sender.email), profile_path(message.sender) %></td>
-		    <td><%=h message.created_at.to_s(:long) %></td>
+		    <td><%= l(message.created_at, :format => "%d/%m/%Y, %H:%M:%S") %></td>
 			</tr>
 		<% end %>
 		<tr>

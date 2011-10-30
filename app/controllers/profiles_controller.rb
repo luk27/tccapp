@@ -3,12 +3,15 @@ class ProfilesController < ApplicationController
  before_filter :correct_profile, :only => [:edit, :update]
  before_filter :admin_profile, :only => :destroy
 
+layout "profiles"
+
   def novo
 @title = `Cadastrar`
 @profile = Profile.new
   end
 
   def index
+  #render :layout => 'membros'
     @title = "Todos os Membros"
     @search = Profile.search do
         fulltext params[:search],
@@ -18,6 +21,7 @@ class ProfilesController < ApplicationController
     
     #@search = Profile.search(params[:search]) #paradinhas nova da busca
     #@profilesS = @search.all  #paradinhas nova da busca
+    render :layout => 'membros'
   end
 
   def ranking

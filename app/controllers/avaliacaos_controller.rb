@@ -1,5 +1,7 @@
 ﻿class AvaliacaosController < ApplicationController
 
+layout "avaliacaos"
+
 def new
 @profile = Profile.find(params[:profile])
 @avaliado = Profile.find(params[:avaliado])

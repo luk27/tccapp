@@ -1,5 +1,5 @@
 <h1>Avaliar Membro</h1>
-
+<!-- Mexi nas labels colocando ç e tals se der pau eh isso-->
 <% form_for @avaliacao do |f| %>
  <%= render 'shared/error_messages', :object => f.object %>
  
@@ -46,13 +46,13 @@
   </div>
   
      <div class="field">
-	<%= f.label :organizacao %><br />
+	<%= f.label :organização %><br />
   Avalia o membro da equipe quanto a seu nível de organização.</br>
 	<%= f.text_field :organizacao %>
   </div>
   
      <div class="field">
-	<%= f.label :comunicacao%><br />
+	<%= f.label :comunicação %><br />
   Avalia o usuário na sua capacidade de se comunicar com os membros da equipe, seja por mensagens, in loco ou email.</br>
 	<%= f.text_field :comunicacao %>
   </div>

@@ -3,6 +3,8 @@ before_filter :authenticate
 #before_filter :correct_profile
 before_filter :profile_projeto
 
+layout "projetos"
+
 	def index
 	@proj = params[:projeto_id]
 		@visitas = VisitasProjeto.where(:projeto_id => @proj)

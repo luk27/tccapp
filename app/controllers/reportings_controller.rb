@@ -1,5 +1,8 @@
 class ReportingsController < ApplicationController
 skip_before_filter :add_visita
+before_filter :admin?
+
+layout "painel"
 
 	def index
 		
@@ -119,5 +122,13 @@ skip_before_filter :add_visita
 		
 		
 	end
+	
+private
+
+	def admin?
+		unless current_profile.admin == true
+		redirect_to :root
+		end
+	end	
 	
 end

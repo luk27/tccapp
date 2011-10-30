@@ -11,6 +11,8 @@ Tccapp::Application.configure do
     :authentication       => "plain",
     :enable_starttls_auto => true
   }
+  
+  config.time_zone = 'Brasilia'
 
 #config.action_mailer.delivery_method = :smtp
 
